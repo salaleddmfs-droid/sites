@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Coração - O Motor da Vida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #c41e3a;
+            --secondary-color: #8b0000;
+            --accent-color: #ff6b6b;
+            --light-pink: #ffe4e1;
+            --white: #ffffff;
+            --dark-text: #333333;
+            --light-text: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe4e1 50%, #fff0f0 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        .heart-icon {
+            font-size: 4rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .heart-diagram {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--light-pink) 0%, #fff 100%);
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+
+        .heart-emoji {
+            font-size: 8rem;
+            display: inline-block;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .fact-card {
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--white) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: scale(1.02);
+        }
+
+        .fact-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .anatomy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .anatomy-list li {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: var(--light-pink);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .anatomy-list li:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateX(10px);
+        }
+
+        .anatomy-list li::before {
+            content: "❤️";
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            border-radius: 15px;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .tips-list {
+            list-style: none;
+            counter-reset: tips;
+        }
+
+        .tips-list li {
+            padding: 1rem 1rem 1rem 4rem;
+            margin: 1rem 0;
+            background: var(--light-pink);
+            border-radius: 10px;
+            position: relative;
+            counter-increment: tips;
+        }
+
+        .tips-list li::before {
+            content: counter(tips);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            text-align: center;
+            margin: 0;
+        }
+
+        .heart-beat-animation {
+            display: inline-block;
+            animation: heartbeat 0.8s ease-in-out infinite;
+        }
+
+        .quiz-container {
+            margin: 2rem 0;
+        }
+
+        .quiz-question {
+            background: var(--light-pink);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .quiz-question h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            background: var(--white);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-options li:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .quiz-options li.correct {
+            background: #4caf50;
+            color: var(--white);
+            border-color: #2e7d32;
+        }
+
+        .quiz-options li.incorrect {
+            background: #f44336;
+            color: var(--white);
+            border-color: #c62828;
+        }
+
+        .quiz-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .quiz-result.correct {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .quiz-result.incorrect {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .author-credit {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="heart-icon">❤️</div>
+        <h1>O Coração Humano</h1>
+        <p>O órgão mais importante do corpo humano</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#anatomia">Anatomia</a></li>
+            <li><a href="#funcionamento">Funcionamento</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#saude">Saúde Cardiovascular</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introducao">
+            <h2>❤️ O Que é o Coração?</h2>
+            <p>O coração é um órgão muscular oco, do tamanho de um punho, localizado no centro do peito, ligeiramente inclinado para a esquerda. É o <strong>órgão mais importante</strong> do sistema circulatório e funciona como uma bomba que impulsiona o sangue por todo o corpo.</p>
+            <p>Este órgão extraordinário bate aproximadamente <strong>100.000 vezes por dia</strong>, bombeando cerca de <strong>5 litros de sangue por minuto</strong> através de mais de 96.000 quilômetros de vasos sanguíneos. Sem o coração, o corpo não conseguiria receber o oxigênio e os nutrientes necessários para sobreviver.</p>
+            
+            <div class="heart-diagram">
+                <div class="heart-emoji">❤️</div>
+                <p><strong>O símbolo universal do amor e da vida</strong></p>
+            </div>
+        </section>
+
+        <section id="anatomia">
+            <h2>🫀 Anatomia do Coração</h2>
+            <p>O coração é composto por quatro câmaras principais: dois átrios e dois ventrículos. Além disso, possui válvulas que impedem o refluxo do sangue e artérias e veias que transportam o sangue para todo o corpo.</p>
+            
+            <h3>As Quatro Câmaras</h3>
+            <ul class="anatomy-list">
+                <li><strong>ÁTRIO DIREITO:</strong> Recebe o sangue pobre em oxigênio do corpo através das veias cavas</li>
+                <li><strong>VENTRÍCULO DIREITO:</strong> Bomba o sangue para os pulmões através da artéria pulmonar</li>
+                <li><strong>ÁTRIO ESQUERDO:</strong> Recebe o sangue rico em oxigênio dos pulmões através das veias pulmonares</li>
+                <li><strong>VENTRÍCULO ESQUERDO:</strong> Bomba o sangue rico em oxigênio para todo o corpo através da aorta</li>
+            </ul>
+
+            <h3>As Válvulas Cardíacas</h3>
+            <p>O coração possui quatro válvulas que garantem que o sangue flua em uma única direção:</p>
+            <ul class="anatomy-list">
+                <li><strong>VALVA TRICÚSPIDE:</strong> Localizada entre o átrio direito e o ventrículo direito</li>
+                <li><strong>VALVA PULMONAR:</strong> Localizada entre o ventrículo direito e a artéria pulmonar</li>
+                <li><strong>VALVA MITRAL:</strong> Localizada entre o átrio esquerdo e o ventrículo esquerdo</li>
+                <li><strong>VALVA AÓRTICA:</strong> Localizada entre o ventrículo esquerdo e a aorta</li>
+            </ul>
+        </section>
+
+        <section id="funcionamento">
+            <h2>⚡ Como o Coração Funciona</h2>
+            <p>O coração funciona através de um processo chamado <strong>ciclo cardíaco</strong>, que consiste em duas fases: sístole (contração) e diástole (relaxamento).</p>
+            
+            <h3>O Ciclo Cardíaco</h3>
+            <p>Durante a <strong>sístole</strong>, os ventrículos se contraem e impulsionam o sangue para fora do coração. Na <strong>diástole</strong>, os ventrículos se relaxam e se enchem de sangue proveniente dos átrios.</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-number">60-100</span>
+                    <span class="stat-label">Batimentos por minuto em repouso</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Litros de sangue por minuto</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Bilhões de batimentos numa vida</span>
+                </div>
+            </div>
+
+            <p>O <strong>nó sinoatrial (SA)</strong>, localizado no átrio direito, é o marca-passo natural do coração. Ele gera impulsos elétricos que fazem o coração bater de forma rítmica e coordenada.</p>
+        </section>
+
+        <section id="curiosidades">
+            <h2>💡 Curiosidades Fascinantes</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h4>🌍 Primeiro Transplante</h4>
+                    <p>O primeiro transplante de coração foi realizado em 1967 pelo Dr. Christiaan Barnard na África do Sul.</p>
+                </div>
+                <div class="fact-card">
+                    <h4>💗 Coração vs. Tamanho</h4>
+                    <p>Seu coração tem aproximadamente o tamanho de seu punho fechado.</p>
+                </div>
+                <div class="fact-card">
+                    <h4>⏰ Ritmo Variável</h4>
+                    <p>O coração pode variar seus batimentos de 20 a 200 por minuto, dependendo da atividade física.</p>
+                </div>
+                <div class="fact-card">
+                    <h4>🔋 Potência Elétrica</h4>
+                    <p>A eletricidade gerada pelo coração em um dia poderia alimentar um carro eléctrico por aproximadamente 30 km.</p>
+                </div>
+                <div class="fact-card">
+                    <h4>🫀自 Cornelius</h4>
+                    <p>O coração de um feto começa a bater apenas 22 dias após a concepção.</p>
+                </div>
+                <div class="fact-card">
+                    <h4>❤️ Ritmo Cardiaco</h4>
+                    <p>O coração de um bebé recém-nascido bate cerca de 180 vezes por minuto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="saude">
+            <h2>🩺 Saúde Cardiovascular</h2>
+            <p>Manter o coração saudável é essencial para uma vida longa e plena. Aqui estão algumas dicas importantes:</p>
+            
+            <h3>7 Dicas para um Coração Saudável</h3>
+            <ul class="tips-list">
+                <li><strong>Alimente-se de forma equilibrada:</strong> Reduza o consumo de gorduras saturadas, sal e açúcar. Prefira frutas, vegetais, grãos integrais e proteínas magras.</li>
+                <li><strong>Pratique exercício físico:</strong> Pelo menos 150 minutos de atividade moderada por semana podem fazer maravilhas para seu coração.</li>
+                <li><strong>Não fume:</strong> O tabagismo é um dos principais fatores de risco para doenças cardíacas.</li>
+                <li><strong>Controle o estresse:</strong> O estresse crónico pode aumentar a pressão arterial e danificar o coração.</li>
+                <li><strong>Monitore a pressão arterial:</strong> Mantenha a pressão arterial em níveis normais (abaixo de 120/80 mmHg).</li>
+                <li><strong>Controle o colesterol:</strong> Níveis elevados de LDL (colesterol mau) podem obstruir as artérias.</li>
+                <li><strong>Durma bem:</strong> A privação de sono pode aumentar o risco de doenças cardiovasculares.</li>
+            </ul>
+
+            <h3>Sinais de Alerta</h3>
+            <p>Fique atento aos seguintes sintomas que podem indicar problemas cardíacos:</p>
+            <ul class="anatomy-list">
+                <li>Dor no peito ou desconforto</li>
+                <li>Falta de ar inexplicável</li>
+                <li>Palpitações ou ritmo cardíaco irregular</li>
+                <li>Tonturas ou desmaios</li>
+                <li>Fadiga excessiva</li>
+            </ul>
+        </section>
+
+        <section id="quiz">
+            <h2>🧠 Teste os Seus Conhecimentos</h2>
+            <p>Responda às seguintes perguntas sobre o coração e veja quanto aprendeu!</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h4>1. Quantas câmaras tem o coração humano?</h4>
+                    <ul class="quiz-options" data-correct="2">
+                        <li onclick="checkAnswer(this, 1)">A) 2 câmaras</li>
+                        <li onclick="checkAnswer(this, 2)">B) 4 câmaras</li>
+                        <li onclick="checkAnswer(this, 3)">C) 6 câmaras</li>
+                        <li onclick="checkAnswer(this, 4)">D) 8 câmaras</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>2. Quantos litros de sangue o coração bombeia por minuto?</h4>
+                    <ul class="quiz-options" data-correct="3">
+                        <li onclick="checkAnswer(this, 1)">A) 2 litros</li>
+                        <li onclick="checkAnswer(this, 2)">B) 3 litros</li>
+                        <li onclick="checkAnswer(this, 3)">C) 5 litros</li>
+                        <li onclick="checkAnswer(this, 4)">D) 10 litros</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>3. Qual é o marca-passo natural do coração?</h4>
+                    <ul class="quiz-options" data-correct="2">
+                        <li onclick="checkAnswer(this, 1)">A) Nó atrioventricular</li>
+                        <li onclick="checkAnswer(this, 2)">B) Nó sinoatrial</li>
+                        <li onclick="checkAnswer(this, 3)">C) Ventrículo esquerdo</li>
+                        <li onclick="checkAnswer(this, 4)">D) Átrio direito</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>4. Em que ano foi realizado o primeiro transplante de coração?</h4>
+                    <ul class="quiz-options" data-correct="3">
+                        <li onclick="checkAnswer(this, 1)">A) 1950</li>
+                        <li onclick="checkAnswer(this, 2)">B) 1960</li>
+                        <li onclick="checkAnswer(this, 3)">C) 1967</li>
+                        <li onclick="checkAnswer(this, 4)">D) 1975</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>5. Quantas vezes o coração bate aproximadamente por dia?</h4>
+                    <ul class="quiz-options" data-correct="2">
+                        <li onclick="checkAnswer(this, 1)">A) 50.000 vezes</li>
+                        <li onclick="checkAnswer(this, 2)">B) 100.000 vezes</li>
+                        <li onclick="checkAnswer(this, 3)">C) 150.000 vezes</li>
+                        <li onclick="checkAnswer(this, 4)">D) 200.000 vezes</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>6. Qual válvula está localizada entre o átrio esquerdo e o ventrículo esquerdo?</h4>
+                    <ul class="quiz-options" data-correct="3">
+                        <li onclick="checkAnswer(this, 1)">A) Valva tricúspide</li>
+                        <li onclick="checkAnswer(this, 2)">B) Valva pulmonar</li>
+                        <li onclick="checkAnswer(this, 3)">C) Valva mitral</li>
+                        <li onclick="checkAnswer(this, 4)">D) Valva aórtica</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>7. Quantos dias após a concepção o coração de um feto começa a bater?</h4>
+                    <ul class="quiz-options" data-correct="1">
+                        <li onclick="checkAnswer(this, 1)">A) 22 dias</li>
+                        <li onclick="checkAnswer(this, 2)">B) 30 dias</li>
+                        <li onclick="checkAnswer(this, 3)">C) 45 dias</li>
+                        <li onclick="checkAnswer(this, 4)">D) 60 dias</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <div class="quiz-question">
+                    <h4>8. Qual é a frequência cardíaca normal em repouso (batimentos por minuto)?</h4>
+                    <ul class="quiz-options" data-correct="2">
+                        <li onclick="checkAnswer(this, 1)">A) 40-50</li>
+                        <li onclick="checkAnswer(this, 2)">B) 60-100</li>
+                        <li onclick="checkAnswer(this, 3)">C) 110-130</li>
+                        <li onclick="checkAnswer(this, 4)">D) 140-160</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <h3>Fácil</h3>
+                <div class="quiz-question">
+                    <h4>9. Qual destas opções descreve melhor o coração?</h4>
+                    <ul class="quiz-options" data-correct="3">
+                        <li onclick="checkAnswer(this, 1)">A) Um músculo que ajuda a mover os braços</li>
+                        <li onclick="checkAnswer(this, 2)">B) Um osso no peito</li>
+                        <li onclick="checkAnswer(this, 3)">C) Um órgão que bombeia sangue</li>
+                        <li onclick="checkAnswer(this, 4)">D) Um dente especial</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <h3>Médio</h3>
+                <div class="quiz-question">
+                    <h4>10. Qual parte do corpo recebe sangue rico em oxigênio do coração?</h4>
+                    <ul class="quiz-options" data-correct="1">
+                        <li onclick="checkAnswer(this, 1)">A) Todo o corpo</li>
+                        <li onclick="checkAnswer(this, 2)">B) Apenas os pulmões</li>
+                        <li onclick="checkAnswer(this, 3)">C) Apenas o cérebro</li>
+                        <li onclick="checkAnswer(this, 4)">D) Apenas os pés</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <h3>Difícil</h3>
+                <div class="quiz-question">
+                    <h4>11. Qual a função da válvula mitral no coração?</h4>
+                    <ul class="quiz-options" data-correct="4">
+                        <li onclick="checkAnswer(this, 1)">A) Impedir o sangue de entrar na artéria pulmonar</li>
+                        <li onclick="checkAnswer(this, 2)">B) Bombear sangue para os pulmões</li>
+                        <li onclick="checkAnswer(this, 3)">C) Filtrar impurezas do sangue</li>
+                        <li onclick="checkAnswer(this, 4)">D) Controlar o fluxo do átrio esquerdo para o ventrículo esquerdo</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+                <h3>Impossível</h3>
+                <div class="quiz-question">
+                    <h4>12. Quantos batimentos por minuto tem o coração de um atleta em repouso?</h4>
+                    <ul class="quiz-options" data-correct="1">
+                        <li onclick="checkAnswer(this, 1)">A) Cerca de 40-50</li>
+                        <li onclick="checkAnswer(this, 2)">B) Cerca de 120-140</li>
+                        <li onclick="checkAnswer(this, 3)">C) Cerca de 10-20</li>
+                        <li onclick="checkAnswer(this, 4)">D) Cerca de 200-220</li>
+                    </ul>
+                    <div class="quiz-result"></div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>❤️ Site criado para fins educativos sobre o coração humano</p>
+        <p class="heart-beat-animation">❤️💓❤️</p>
+        <p>&copy; 2026 - Aprenda mais sobre o órgão mais importante do corpo humano</p>
+        <p class="author-credit">Realizado por Gonçalo Pedrosa!</p>
+    </footer>
+
+    <script>
+        function checkAnswer(element, selected) {
+            const questionDiv = element.closest('.quiz-question');
+            const options = questionDiv.querySelector('.quiz-options');
+            const correctAnswer = parseInt(options.getAttribute('data-correct'));
+            const resultDiv = questionDiv.querySelector('.quiz-result');
+            const allOptions = options.querySelectorAll('li');
+            
+            // Desabilitar todas as opções após resposta
+            allOptions.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            
+            // Marcar resposta selecionada
+            if (selected === correctAnswer) {
+                element.classList.add('correct');
+                resultDiv.textContent = '✓ Correto! Muito bem!';
+                resultDiv.className = 'quiz-result show correct';
+            } else {
+                element.classList.add('incorrect');
+                allOptions[correctAnswer - 1].classList.add('correct');
+                resultDiv.textContent = '✗ Incorreto. A resposta correta está destacada em verde.';
+                resultDiv.className = 'quiz-result show incorrect';
+            }
+        }
+    </script>
+</body>
+</html>

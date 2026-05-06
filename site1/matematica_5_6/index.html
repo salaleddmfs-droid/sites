@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática 5º e 6º Ano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Matemática Divertida</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio" class="active">Início</a></li>
+                <li><a href questoes>Questões V/F</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#curiosidades">Curiosidades</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Início -->
+        <section id="inicio" class="page">
+            <h2>Bem-vindo!</h2>
+            <p>Explore o mundo da matemática com questões, curiosidades e muito mais.</p>
+            <div class="tools">
+                <svg width="60" height="60" viewBox="0 0 100 100">
+                    <!-- Esquadro -->
+                    <polygon points="30,70 30,30 70,30" fill="none" stroke="#333" stroke-width="5"/>
+                </svg>
+                <svg width="60" height="60" viewBox="0 0 100 100">
+                    <!-- Transferidor (semicírculo) -->
+                    <path d="M30,30 A20,20 0 0,1 70,30 L70,30 A20,20 0 0,0 30,30 Z" fill="none" stroke="#333" stroke-width="5"/>
+                    <!-- marcações -->
+                    <g stroke="#333" stroke-width="2">
+                        <line x1="30" y1="30" x2="30" y2="20"/>
+                        <line x1="50" y1="30" x2="50" y2="20"/>
+                        <line x1="70" y1="30" x2="70" y2="20"/>
+                    </g>
+                </svg>
+                <svg width="60" height="60" viewBox="0 0 100 100">
+                    <!-- Compasso -->
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#333" stroke-width="5"/>
+                    <line x1="50" y1="10" x2="50" y2="90" stroke="#333" stroke-width="3"/>
+                    <circle cx="50" cy="90" r="5" fill="#333"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Questões V/F -->
+        <section id="questoes" class="page">
+            <h2>Questões Verdadeiro ou Falso</h2>
+            <div class="q-list">
+                <div class="question" data-answer="false">
+                    <p>1. Um triângulo pode ter dois ângulos retos.</p>
+                    <button class="toggle-btn">Mostrar resposta</button>
+                    <p class="answer">Falso: a soma dos ângulos internos de um triângulo é 180º, então dois ângulos retos já somam 180º, deixando zero para o terceiro ângulo.</p>
+                </div>
+                <div class="question" data-answer="true">
+                    <p>2. Em uma circunferência, o diâmetro é o dobro do raio.</p>
+                    <button class="toggle-btn">Mostrar resposta</button>
+                    <p class="answer">Verdadeiro: diâmetro = 2 × raio.</p>
+                </div>
+                <div class="question" data-answer="false">
+                    <p>3. O número 1 é primo.</p>
+                    <button class="toggle-btn">Mostrar resposta</button>
+                    <p class="answer">Falso: por definição, números primos têm exatamente dois divisores distintos (1 e ele mesmo). O 1 tem apenas um divisor.</p>
+                </div>
+                <div class="question" data-answer="true">
+                    <p>4. A área de um retângulo se calcula multiplicando base por altura.</p>
+                    <button class="toggle-btn">Mostrar resposta</button>
+                    <p class="answer">Verdadeiro: Área = base × altura.</p>
+                </div>
+                <div class="question" data-answer="false">
+                    <p>5. Médias aritmética e geométrica de dois números positivos são sempre iguais.</p>
+                    <button class="toggle-btn">Mostrar resposta</button>
+                    <p class="answer">Falso: elas são iguais somente quando os números são iguais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria -->
+        <section id="galeria" class="page">
+            <h2>Galeria de Imagens</h2>
+            <div class="gallery">
+                <figure>
+                    <svg width="200" height="200" viewBox="0 0 100 100">
+                        <rect x="10" y="10" width="80" height="60" fill="none" stroke="#333" stroke-width="3"/>
+                        <line x1="10" y1="10" x2="90" y2="70" stroke="#333" stroke-width="2"/>
+                        <line x1="90" y1="10" x2="10" y2="70" stroke="#333" stroke-width="2"/>
+                    </svg>
+                    <figcaption>Figuras geométricas</figcaption>
+                </figure>
+                <figure>
+                    <svg width="200" height="200" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#333" stroke-width="3"/>
+                        <line x1="50" y1="10" x2="50" y2="90" stroke="#333" stroke-width="2"/>
+                        <line x1="10" y1="50" x2="90" y2="50" stroke="#333" stroke-width="2"/>
+                    </svg>
+                    <figcaption>Circunferência com diâmetros</figcaption>
+                </figure>
+                <figure>
+                    <svg width="200" height="200" viewBox="0 0 100 100">
+                        <polygon points="50,10 90,50 50,90 10,50" fill="none" stroke="#333" stroke-width="3"/>
+                    </svg>
+                    <figcaption>Losango</figcaption>
+                </figure>
+                <figure>
+                    <svg width="200" height="200" viewBox="0 0 100 100">
+                        <path d="M20,80 Q50,20 80,80 T140,80" fill="none" stroke="#333" stroke-width="3"/>
+                    </svg>
+                    <figcaption>Parametrização de curva</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Curiosidades -->
+        <section id="curiosidades" class="page">
+            <h2>Curiosidades Matemáticas</h2>
+            <ul>
+                <li>O símbolo de infinito (∞) foi introduzido por John Wallis em 1655.</li>
+                <li>Um "googol" é 10 elevado a 100; o nome do Google veio de um erro de digitação dessa palavra.</li>
+                <li>O número π (pi) é irracional e transcendental; suas casas decimais nunca se repetem.</li>
+                <li>A sequência de Fibonacci aparece na natureza: em conchas, girassóis e pinhas.</li>
+                <li>Existem apenas 5 sólidos platônicos: tetraedro, cubo, octaedro, dodecaedro e icosaedro.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Matemática 5º e 6º Ano</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

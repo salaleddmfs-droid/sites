@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Táticas para Derrotar Equipas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .clubes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .clube-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .clube-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .clube-btn.ativo {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+        }
+
+        .taticas-display {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            border-radius: 8px;
+            min-height: 250px;
+            display: none;
+        }
+
+        .taticas-display.mostrar {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .clube-nome {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .tatica-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .tatica-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .tatica-titulo {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .tatica-descricao {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .sem-selecao {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚽ Táticas para Derrotar Equipas</h1>
+        
+        <div class="clubes-grid" id="clubesContainer">
+            <!-- Botões gerados dinamicamente -->
+        </div>
+
+        <div class="taticas-display" id="taticasDisplay">
+            <div class="sem-selecao">Seleciona um clube para ver as táticas</div>
+        </div>
+    </div>
+
+    <script>
+        const equipas = {
+            'Manchester City': [
+                {
+                    titulo: '🔒 Defesa Compacta',
+                    descricao: 'Manter uma defesa organizada no meio-campo. Não deixar espaços para as jogadas de criação.'
+                },
+                {
+                    titulo: '⚡ Pressão Imediata',
+                    descricao: 'Pressionar os defesas logo que recuperam a bola para forçar erros nos passes.'
+                },
+                {
+                    titulo: '🎯 Contra-ataque Rápido',
+                    descricao: 'Aproveitar os erros de construção para criar contra-ataques letais.'
+                },
+                {
+                    titulo: '🚫 Bloquear Pases Centrais',
+                    descricao: 'Impedir passes no eixo central onde é mais perigoso. Forçar para os flancos.'
+                }
+            ],
+            'Real Madrid': [
+                {
+                    titulo: '🛡️ Bloquear Flancos',
+                    descricao: 'Fechar os flancos onde normalmente fazem as grandes criações.'
+                },
+                {
+                    titulo: '👤 Marcar Bem Vinícius',
+                    descricao: 'Dedicar atenção especial ao ponta de lança, não o deixar ganhar espaço.'
+                },
+                {
+                    titulo: '⏱️ Circulação Rápida',
+                    descricao: 'Não deixar o tempo circular. Pressionar rápido e obrigar a perder controlo.'
+                },
+                {
+                    titulo: '🎪 Defender as Transições',
+                    descricao: 'Ter cuidado com as jogadas rápidas de transição. Formar barreira rápida.'
+                }
+            ],
+            'FC Barcelona': [
+                {
+                    titulo: '🔄 Pressão no Meio',
+                    descricao: 'Pressionar a construção do Barcelona no meio-campo para quebrar o jogo de posse.'
+                },
+                {
+                    titulo: '✂️ Cortar Linhas de Passe',
+                    descricao: 'Bloquear as linhas de passe interiores que ligam a defesa ao ataque.'
+                },
+                {
+                    titulo: '🏃 Acompanhar Movimentos',
+                    descricao: 'Marcar bem ao pé os jogadores mais técnicos para limitar liberdade de movimento.'
+                },
+                {
+                    titulo: '🎯 Transições Ofensivas',
+                    descricao: 'Aproveitar cada bola roubada para criar perigo rápido antes de reorganizarem.'
+                }
+            ],
+            'Liverpool': [
+                {
+                    titulo: '⚙️ Controlar o Ritmo',
+                    descricao: 'Baixar o ritmo do jogo. O Liverpool vive da intensidade, desacelera e controlam.'
+                },
+                {
+                    titulo: '🔒 Segurar o Bloco',
+                    descricao: 'Manter o bloco defensivo compacto. Não deixar profundidade para os passes.'
+                },
+                {
+                    titulo: '🤐 Silenciar o Público',
+                    descricao: 'Procurar marcar cedo para abater o moral da equipa e do estádio.'
+                },
+                {
+                    titulo: '🛡️ Proteger as Laterais',
+                    descricao: 'Os laterais são uma arma. Defender bem a profundidade nessas zonas.'
+                }
+            ],
+            'Bayern Munique': [
+                {
+                    titulo: '🧱 Defesa Num Bloco',
+                    descricao: 'Nunca deixar avançar sozinho. Estar sempre em superioridade numérica na defesa.'
+                },
+                {
+                    titulo: '🎭 Engano Tático',
+                    descricao: 'Mudar de sistema conforme a situação. Variar entre 4-4-2 e 5-3-2 para confundir.'
+                },
+                {
+                    titulo: '⚡ Velocidade em Bola Parada',
+                    descricao: 'Ter atenção redobrada em lances de bola parada. Bayern marca muito em cantos.'
+                },
+                {
+                    titulo: '🚫 Eliminar Espaços',
+                    descricao: 'Jogar sempre compacto. Não dar um metro de espaço entre linhas.'
+                }
+            ],
+            'PSG': [
+                {
+                    titulo: '👊 Agressividade Inicial',
+                    descricao: 'Começar agressivo e não deixar o PSG encontrar ritmo na primeira parte.'
+                },
+                {
+                    titulo: '⏹️ Parar 'Khvicha Kvaratskhelia
+                
+                    descricao: 'Marcar bem o avançado rápido. Usar defesa de linha alta com cobertura.'
+                },
+                {
+                    titulo: '🎯 Explorar Fraquezas Defensivas',
+                    descricao: 'O PSG pode ser frágil defensivamente. Procurar contra-ataques rápidos.'
+                },
+                {
+                    titulo: '💪 Força Física',
+                    descricao: 'PSG gosta de jogar tecnicamente. Impor força e intensidade física.'
+                }
+            ],
+            'Juventus': [
+                {
+                    titulo: '🔐 Defesa Defensiva',
+                    descricao: 'Juventus defende com bloco baixo. Forçar para fora da área e tiros de longe.'
+                },
+                {
+                    titulo: '⚡ Explorar Flancos',
+                    descricao: 'Atacar os flancos. Juventus é mais fraca nas laterais que no centro.'
+                },
+                {
+                    titulo: '🎪 Pressão em Bola Parada',
+                    descricao: 'Ser rigoroso nos cantos. Juventus sofre com dinâmicas ofensivas em bola parada.'
+                },
+                {
+                    titulo: '🏃 Contro-ataque Violento',
+                    descricao: 'Aproveitar cada roubada de bola para transições rápidas e ofensivas.'
+                }
+            ]
+        };
+
+        const container = document.getElementById('clubesContainer');
+        const taticasDisplay = document.getElementById('taticasDisplay');
+
+        // Criar botões para cada clube
+        Object.keys(equipas).forEach(clube => {
+            const btn = document.createElement('button');
+            btn.className = 'clube-btn';
+            btn.textContent = clube;
+            btn.onclick = () => mostrarTaticas(clube, btn);
+            container.appendChild(btn);
+        });
+
+        function mostrarTaticas(clube, botao) {
+            // Remover classe ativa de todos os botões
+            document.querySelectorAll('.clube-btn').forEach(btn => {
+                btn.classList.remove('ativo');
+            });
+            
+            // Adicionar classe ativa ao botão clicado
+            botao.classList.add('ativo');
+
+            // Mostrar táticas
+            const taticas = equipas[clube];
+            let html = `<div class="clube-nome">${clube}</div>`;
+            
+            taticas.forEach(tatica => {
+                html += `
+                    <div class="tatica-item">
+                        <div class="tatica-titulo">${tatica.titulo}</div>
+                        <div class="tatica-descricao">${tatica.descricao}</div>
+                    </div>
+                `;
+            });
+
+            taticasDisplay.innerHTML = html;
+            taticasDisplay.classList.add('mostrar');
+        }
+    </script>
+</body>
+</html>

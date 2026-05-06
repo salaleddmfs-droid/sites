@@ -1,0 +1,659 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Táticas para Derrotar Equipas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .clubes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .clube-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .clube-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .clube-btn.ativo {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+        }
+
+        .taticas-display {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            border-radius: 8px;
+            min-height: 250px;
+            display: none;
+        }
+
+        .taticas-display.mostrar {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .clube-nome {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .tatica-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .tatica-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .tatica-titulo {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .tatica-descricao {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .sem-selecao {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 50px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚽ Táticas para Derrotar Equipas</h1>
+        
+        <div class="clubes-grid" id="clubesContainer">
+            <!-- Botões gerados dinamicamente -->
+        </div>
+
+        <div class="taticas-display" id="taticasDisplay">
+            <div class="sem-selecao">Seleciona um clube para ver as táticas</div>
+        </div>
+    </div>
+
+    <script>
+        const equipas = {
+            'Manchester City': [
+                {
+                    titulo: '🔒 Defesa Compacta',
+                    descricao: 'Manter uma defesa organizada no meio-campo. Não deixar espaços para as jogadas de criação.'
+                },
+                {
+                    titulo: '⚡ Pressão Imediata',
+                    descricao: 'Pressionar os defesas logo que recuperam a bola para forçar erros nos passes.'
+                },
+                {
+                    titulo: '🎯 Contra-ataque Rápido',
+                    descricao: 'Aproveitar os erros de construção para criar contra-ataques letais.'
+                },
+                {
+                    titulo: '🚫 Bloquear Pases Centrais',
+                    descricao: 'Impedir passes no eixo central onde é mais perigoso. Forçar para os flancos.'
+                }
+            ],
+            'Real Madrid': [
+                {
+                    titulo: '🛡️ Bloquear Flancos',
+                    descricao: 'Fechar os flancos onde normalmente fazem as grandes criações.'
+                },
+                {
+                    titulo: '👤 Marcar Bem Vinícius',
+                    descricao: 'Dedicar atenção especial ao ponta de lança, não o deixar ganhar espaço.'
+                },
+                {
+                    titulo: '⏱️ Circulação Rápida',
+                    descricao: 'Não deixar o tempo circular. Pressionar rápido e obrigar a perder controlo.'
+                },
+                {
+                    titulo: '🎪 Defender as Transições',
+                    descricao: 'Ter cuidado com as jogadas rápidas de transição. Formar barreira rápida.'
+                }
+            ],
+            'FC Barcelona': [
+                {
+                    titulo: '🔄 Pressão no Meio',
+                    descricao: 'Pressionar a construção do Barcelona no meio-campo para quebrar o jogo de posse.'
+                },
+                {
+                    titulo: '✂️ Cortar Linhas de Passe',
+                    descricao: 'Bloquear as linhas de passe interiores que ligam a defesa ao ataque.'
+                },
+                {
+                    titulo: '🏃 Acompanhar Movimentos',
+                    descricao: 'Marcar bem ao pé os jogadores mais técnicos para limitar liberdade de movimento.'
+                },
+                {
+                    titulo: '🎯 Transições Ofensivas',
+                    descricao: 'Aproveitar cada bola roubada para criar perigo rápido antes de reorganizarem.'
+                }
+            ],
+            'Liverpool': [
+                {
+                    titulo: '⚙️ Controlar o Ritmo',
+                    descricao: 'Baixar o ritmo do jogo. O Liverpool vive da intensidade, desacelera e controlam.'
+                },
+                {
+                    titulo: '🔒 Segurar o Bloco',
+                    descricao: 'Manter o bloco defensivo compacto. Não deixar profundidade para os passes.'
+                },
+                {
+                    titulo: '🤐 Silenciar o Público',
+                    descricao: 'Procurar marcar cedo para abater o moral da equipa e do estádio.'
+                },
+                {
+                    titulo: '🛡️ Proteger as Laterais',
+                    descricao: 'Os laterais são uma arma. Defender bem a profundidade nessas zonas.'
+                }
+            ],
+            'Bayern Munique': [
+                {
+                    titulo: '🧱 Defesa Num Bloco',
+                    descricao: 'Nunca deixar avançar sozinho. Estar sempre em superioridade numérica na defesa.'
+                },
+                {
+                    titulo: '🎭 Engano Tático',
+                    descricao: 'Mudar de sistema conforme a situação. Variar entre 4-4-2 e 5-3-2 para confundir.'
+                },
+                {
+                    titulo: '⚡ Velocidade em Bola Parada',
+                    descricao: 'Ter atenção redobrada em lances de bola parada. Bayern marca muito em cantos.'
+                },
+                {
+                    titulo: '🚫 Eliminar Espaços',
+                    descricao: 'Jogar sempre compacto. Não dar um metro de espaço entre linhas.'
+                }
+            ],
+            'PSG': [
+                {
+                    titulo: '👊 Agressividade Inicial',
+                    descricao: 'Começar agressivo e não deixar o PSG encontrar ritmo na primeira parte.'
+                },
+                {
+                    titulo: '⏹️ Parar Khvicha Kvaratskhelia',
+                    descricao: 'Marcar bem o avançado rápido. Usar defesa de linha alta com cobertura.'
+                },
+                {
+                    titulo: '🎯 Explorar Fraquezas Defensivas',
+                    descricao: 'O PSG pode ser frágil defensivamente. Procurar contra-ataques rápidos.'
+                },
+                {
+                    titulo: '💪 Força Física',
+                    descricao: 'PSG gosta de jogar tecnicamente. Impor força e intensidade física.'
+                }
+            ],
+            'Juventus': [
+                {
+                    titulo: '🔐 Defesa Defensiva',
+                    descricao: 'Juventus defende com bloco baixo. Forçar para fora da área e tiros de longe.'
+                },
+                {
+                    titulo: '⚡ Explorar Flancos',
+                    descricao: 'Atacar os flancos. Juventus é mais fraca nas laterais que no centro.'
+                },
+                {
+                    titulo: '🎪 Pressão em Bola Parada',
+                    descricao: 'Ser rigoroso nos cantos. Juventus sofre com dinâmicas ofensivas em bola parada.'
+                },
+                {
+                    titulo: '🏃 Contro-ataque Violento',
+                    descricao: 'Aproveitar cada roubada de bola para transições rápidas e ofensivas.'
+                }
+            ],
+            'Arsenal': [
+                {
+                    titulo: '🎯 Parar a Liga de Ouro',
+                    descricao: 'O Arsenal gosta de triangulações rápidas. Intercetar os passes é fundamental.'
+                },
+                {
+                    titulo: '⚡ Pressão Alta',
+                    descricao: 'Pressionar a saída de bola dos defesas centrais. Arsenal sofre com pressão alta.'
+                },
+                {
+                    titulo: '🛡️ Marcar Saka e Martinelli',
+                    descricao: 'Fechar os flancos onde Arsenal cria mais perigo com extremos rápidos.'
+                },
+                {
+                    titulo: '🎪 Ataques no Espaço',
+                    descricao: 'Arsenal deixa espaços nas costas da defesa. Usar contra-ataques rápidos.'
+                }
+            ],
+            'Manchester United': [
+                {
+                    titulo: '🔄 Explorar Desorganização',
+                    descricao: 'United pode ficar desorganizado. Ataques rápidos antes da reorganização.'
+                },
+                {
+                    titulo: '⚡ Pressão nos Defesas',
+                    descricao: 'Pressionar os defesas lentos do United para forçar erros de construção.'
+                },
+                {
+                    titulo: '🎯 Ataque Pelos Flancos',
+                    descricao: 'United tem dificuldades defensivas nas laterais. Atacar com profundidade.'
+                },
+                {
+                    titulo: '💪 Intensidade Física',
+                    descricao: 'Impor intensidade e agressividade para desestabilizar o meio-campo.'
+                }
+            ],
+            'Chelsea': [
+                {
+                    titulo: '🛡️ Bloquear Transições',
+                    descricao: 'Chelsea joga muito em transição. Bloquear espaços nas costas da defesa.'
+                },
+                {
+                    titulo: '⚡ Pressão no Meio-Campo',
+                    descricao: 'Pressionar o meio-campo para impedir que Chelsea circule a bola.'
+                },
+                {
+                    titulo: '🎯 Ataques Pelos Flancos',
+                    descricao: 'Chelsea costuma deixar espaços nas laterais. Atacar com largura.'
+                },
+                {
+                    titulo: '💪 Força Física no Duelo',
+                    descricao: 'Ganhar duelos físicos no meio-campo para impedir a progressão.'
+                }
+            ],
+            'AC Milan': [
+                {
+                    titulo: '🔄 Controlar o Meio-Campo',
+                    descricao: 'Milan domina o meio-campo. Saturar o centro e não dar tempo de passe.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Rápido',
+                    descricao: 'Milan deixa espaços atrás. Aproveitar em transições ofensivas rápidas.'
+                },
+                {
+                    titulo: '🛡️ Marcar Leão e Giroud',
+                    descricao: 'Marcar bem os avançados. Não dar espaço para finalização.'
+                },
+                {
+                    titulo: '🎯 Pressão na Saída de Bola',
+                    descricao: 'Pressionar a construção do Milan para forçar erros na saída.'
+                }
+            ],
+            'Inter Milan': [
+                {
+                    titulo: '🧱 Bloco Baixo Organizado',
+                    descricao: 'Inter joga com defesa sólida. Ser paciente e procurar espaços com inteligência.'
+                },
+                {
+                    titulo: '⚡ Transições Rápidas',
+                    descricao: 'Aproveitar quando Inter avança. Espaços nas costas da defesa são a chave.'
+                },
+                {
+                    titulo: '🎯 Marcar Lautaro',
+                    descricao: 'Lautaro Martinez é perigoso. Marcação apertada e sem dar espaços.'
+                },
+                {
+                    titulo: '💪 Força no Meio-Campo',
+                    descricao: 'Ganhar a batalha no meio-campo com intensidade e agressividade.'
+                }
+            ],
+            'Borussia Dortmund': [
+                {
+                    titulo: '🛡️ Controlar Velocidade',
+                    descricao: 'Dortmund joga muito com velocidade. Baixar o ritmo e não dar espaços.'
+                },
+                {
+                    titulo: '⚡ Marcar Bynoe-Gittens',
+                    descricao: 'O extremo é rápido. Marcação apertada sem dar espaço para correr.'
+                },
+                {
+                    titulo: '🎯 Bloquear Transições',
+                    descricao: 'Dortmund é letal em contra-ataques. Organizar defesa rápido após perda.'
+                },
+                {
+                    titulo: '💪 Intensidade no Duelo',
+                    descricao: 'Ganhar duelos físicos e não deixar Dortmund ganhar confiança.'
+                }
+            ],
+            'Atletico Madrid': [
+                {
+                    titulo: '🧱 Paciência Ofensiva',
+                    descricao: 'Atletico defende muito bem. Ter paciência e procurar espaços pequenos.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Rápido',
+                    descricao: 'Atletico é perigoso em transições. Bloquear imediatamente após perda.'
+                },
+                {
+                    titulo: '🎯 Evitar Bolas Paradas',
+                    descricao: 'Atletico marca muito em bolas paradas. Não cometer faltas desnecessárias.'
+                },
+                {
+                    titulo: '💪 Força Física',
+                    descricao: 'Enfrentar a solidez física do Atletico com agressividade controlada.'
+                }
+            ],
+            'Ajax': [
+                {
+                    titulo: '🔄 Pressão no Meio',
+                    descricao: 'Ajax joga com muita técnica no meio. Pressionar para quebrar a posse.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Organizado',
+                    descricao: 'Ajax deixa espaços atrás. Ataques rápidos através do centro.'
+                },
+                {
+                    titulo: '🎯 Bloquear Criação',
+                    descricao: 'Impedir que Ajax circule a bola com facilidade no meio-campo.'
+                },
+                {
+                    titulo: '💪 Intensidade Física',
+                    descricao: 'Ajax joga com técnica. Impor força física para desestabilizar.'
+                }
+            ],
+            'Porto': [
+                {
+                    titulo: '🎯 Pressão na Saída',
+                    descricao: 'Pressionar a saída de bola do Porto para causar erros de construção.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Rápido',
+                    descricao: 'Porto deixa espaços nas costas. Ataques rápidos em transição.'
+                },
+                {
+                    titulo: '🛡️ Marcar Taremi/Galeno',
+                    descricao: 'Marcar bem os extremos e avançados. Cortar linhas de passe.'
+                },
+                {
+                    titulo: '💪 Intensidade no Dragao',
+                    descricao: 'Porto é forte em casa. Começar agressivo para abater o moral.'
+                }
+            ],
+            'Benfica': [
+                {
+                    titulo: '🔄 Controlar o Meio-Campo',
+                    descricao: 'Benfica domina o meio. Saturar o centro e pressionar a saída.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Pelos Flancos',
+                    descricao: 'Benfica ataca muito pelos flancos. Defender bem e explorar contra-ataques.'
+                },
+                {
+                    titulo: '🎯 Marcar Rafa Silva/Di Maria',
+                    descricao: 'Marcar bem os criativos. Não dar espaço para assistências.'
+                },
+                {
+                    titulo: '💪 Força na Luz',
+                    descricao: 'Benfica é forte em casa. Começar agressivo e silenciar o estádio.'
+                }
+            ],
+            'Sporting': [
+                {
+                    titulo: '🎯 Pressão Alta no Meio',
+                    descricao: 'Sporting joga com muita posse. Pressionar para ganhar a bola cedo.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Rápido',
+                    descricao: 'Sporting deixa espaços. Ataques rápidos assim que recuperar a bola.'
+                },
+                {
+                    titulo: '🛡️ Marcar Gyokeres',
+                    descricao: 'O avançado é letal. Marcação apertada e sem dar espaços.'
+                },
+                {
+                    titulo: '💪 Intensidade no Alvalade',
+                    descricao: 'Sporting joga com intensidade em casa. Responder com agressividade.'
+                }
+            ],
+            'Portugal': [
+                {
+                    titulo: '🎯 Marcar Cristiano/Bruno',
+                    descricao: 'Portugal gira em torno de Bruno e Cristiano. Marcação apertada e sem espaços.'
+                },
+                {
+                    titulo: '⚡ Bloquear Meio-Campo',
+                    descricao: 'Pressionar o meio-campo português para não deixar circulação de bola.'
+                },
+                {
+                    titulo: '🛡️ Defesa Organizada',
+                    descricao: 'Portugal é forte no ataque. Manter defesa compacta e organizada.'
+                },
+                {
+                    titulo: '💪 Intensidade Física',
+                    descricao: 'Impor força física para desestabilizar a técnica da seleção portuguesa.'
+                }
+            ],
+            'Brasil': [
+                {
+                    titulo: '🎯 Marcar Neymar/Vinicius',
+                    descricao: 'Brasil tem extremos muito técnicos. Marcação ao pé sem dar espaço.'
+                },
+                {
+                    titulo: '⚡ Bloquear Criação',
+                    descricao: 'Pressionar o meio-campo brasileiro para impedir construção ofensiva.'
+                },
+                {
+                    titulo: '🛡️ Defesa Sólida',
+                    descricao: 'Brasil é muito ofensivo. Manter bloco baixo e organizado.'
+                },
+                {
+                    titulo: '💪 Força no Duelo',
+                    descricao: 'Ganhar duelos físicos para impedir a progressão brasileira.'
+                }
+            ],
+            'Argentina': [
+                {
+                    titulo: '🎯 Marcar Messi',
+                    descricao: 'Messi é a chave. Marcação dupla e não dar espaço para jogar.'
+                },
+                {
+                    titulo: '⚡ Pressionar Saída',
+                    descricao: 'Pressionar a saída de bola argentina para causar erros.'
+                },
+                {
+                    titulo: '🛡️ Defesa Compacta',
+                    descricao: 'Argentina joga com muita técnica. Manter defesa organizada e compacta.'
+                },
+                {
+                    titulo: '💪 Intensidade no Meio',
+                    descricao: 'Ganhar a batalha no meio-campo com agressividade e intensidade.'
+                }
+            ],
+            'França': [
+                {
+                    titulo: '🎯 Marcar Mbappé',
+                    descricao: 'Mbappé é muito rápido. Marcação apertada e defesa profunda.'
+                },
+                {
+                    titulo: '⚡ Bloquear Transições',
+                    descricao: 'França é letal em contra-ataques. Organizar defesa imediatamente.'
+                },
+                {
+                    titulo: '🛡️ Defesa Física',
+                    descricao: 'França joga com muita força. Responder com solidez defensiva.'
+                },
+                {
+                    titulo: '💪 Meio-Campo Intenso',
+                    descricao: 'Ganhar a batalha no meio-campo com intensidade física.'
+                }
+            ],
+            'Alemanha': [
+                {
+                    titulo: '🎯 Controlar Ritmo',
+                    descricao: 'Alemanha joga com ritmo alto. Baixar o ritmo e não dar espaços.'
+                },
+                {
+                    titulo: '⚡ Pressionar Defesas',
+                    descricao: 'Pressionar a saída de bola alemã para causar erros.'
+                },
+                {
+                    titulo: '🛡️ Marcar Müller/Wirtz',
+                    descricao: 'Marcar bem os criativos alemães. Cortar linhas de passe.'
+                },
+                {
+                    titulo: '💪 Força no Duelo',
+                    descricao: 'Alemanha joga com intensidade. Ganhar duelos físicos no meio.'
+                }
+            ],
+            'Espanha': [
+                {
+                    titulo: '🎯 Pressão no Meio',
+                    descricao: 'Espanha domina a posse. Pressionar no meio para quebrar a circulação.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Rápido',
+                    descricao: 'Espanha deixa espaços atrás. Ataques rápidos em transição.'
+                },
+                {
+                    titulo: '🛡️ Bloquear Criação',
+                    descricao: 'Impedir que Espanha circule a bola com facilidade no meio-campo.'
+                },
+                {
+                    titulo: '💪 Intensidade Física',
+                    descricao: 'Espanha joga com técnica. Impor força física para desestabilizar.'
+                }
+            ],
+            'Inglaterra': [
+                {
+                    titulo: '🎯 Marcar Kane/Bellingham',
+                    descricao: 'Inglaterra gira em torno destes dois. Marcação apertada sem espaços.'
+                },
+                {
+                    titulo: '⚡ Bloquear Transições',
+                    descricao: 'Inglaterra é forte em contra-ataques. Defesa organizada rapidamente.'
+                },
+                {
+                    titulo: '🛡️ Defesa Física',
+                    descricao: 'Inglaterra joga com muita força física. Responder com solidez.'
+                },
+                {
+                    titulo: '💪 Meio-Campo Intenso',
+                    descricao: 'Ganhar a batalha no meio-campo com agressividade.'
+                }
+            ],
+            'Itália': [
+                {
+                    titulo: '🎯 Paciência Ofensiva',
+                    descricao: 'Itália defende muito bem. Ter paciência e procurar espaços pequenos.'
+                },
+                {
+                    titulo: '⚡ Contra-ataque Rápido',
+                    descricao: 'Itália é perigosa em transições. Bloquear imediatamente após perda.'
+                },
+                {
+                    titulo: '🛡️ Evitar Bolas Paradas',
+                    descricao: 'Itália marca muito em bolas paradas. Não cometer faltas desnecessárias.'
+                },
+                {
+                    titulo: '💪 Força Física',
+                    descricao: 'Enfrentar a solidez física italiana com agressividade controlada.'
+                }
+            ]
+        };
+
+        const container = document.getElementById('clubesContainer');
+        const taticasDisplay = document.getElementById('taticasDisplay');
+
+        // Criar botões para cada clube
+        Object.keys(equipas).forEach(clube => {
+            const btn = document.createElement('button');
+            btn.className = 'clube-btn';
+            btn.textContent = clube;
+            btn.onclick = () => mostrarTaticas(clube, btn);
+            container.appendChild(btn);
+        });
+
+        function mostrarTaticas(clube, botao) {
+            // Remover classe ativa de todos os botões
+            document.querySelectorAll('.clube-btn').forEach(btn => {
+                btn.classList.remove('ativo');
+            });
+            
+            // Adicionar classe ativa ao botão clicado
+            botao.classList.add('ativo');
+
+            // Mostrar táticas
+            const taticas = equipas[clube];
+            let html = <div class="clube-nome"></div>;
+            
+            taticas.forEach(tatica => {
+                html += 
+                    <div class="tatica-item">
+                        <div class="tatica-titulo"></div>
+                        <div class="tatica-descricao"></div>
+                    </div>
+                ;
+            });
+
+            taticasDisplay.innerHTML = html;
+            taticasDisplay.classList.add('mostrar');
+        }
+    </script>
+</body>
+</html>

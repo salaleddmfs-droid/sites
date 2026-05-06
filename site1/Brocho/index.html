@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática Divertida - 5º Ano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-icon">🔢</span>
+            <h1>Matemática Divertida</h1>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="quiz">📝 Quiz</button>
+            <button class="nav-btn" data-section="curiosidades">💡 Curiosidades</button>
+            <button class="nav-btn" data-section="apostilas">📚 Apostilas</button>
+            <button class="nav-btn" data-section="jogos">🎮 Jogos</button>
+            <button class="nav-btn" data-section="videos">🎬 Vídeos</button>
+            <button class="nav-btn" data-section="exercicios">📄 Exercícios</button>
+            <button class="nav-btn" data-section="ranking">🏆 Ranking</button>
+            <button class="nav-btn" data-section="sobre">ℹ️ Sobre</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Seção Quiz -->
+        <section id="quiz" class="section active">
+            <div class="section-header">
+                <h2>📝 Quiz Interativo</h2>
+                <p>Teste seus conhecimentos em matemática!</p>
+            </div>
+
+            <!-- Painel de Estatísticas Rápidas -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <span class="stat-icon">📊</span>
+                    <div>
+                        <span class="stat-value" id="total-attempts">0</span>
+                        <span class="stat-label">Tentativas</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">✅</span>
+                    <div>
+                        <span class="stat-value" id="total-correct">0</span>
+                        <span class="stat-label">Acertos</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🎯</span>
+                    <div>
+                        <span class="stat-value" id="best-score">0%</span>
+                        <span class="stat-label">Melhor %</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seleção de Categoria -->
+            <div class="category-selector">
+                <div class="category-card" data-category="operacoes">
+                    <div class="category-icon">🧮</div>
+                    <h3>Operações Básicas</h3>
+                    <p>Adição, subtração, multiplicação e divisão</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('operacoes')">Começar</button>
+                </div>
+
+                <div class="category-card" data-category="fracoes">
+                    <div class="category-icon">🍰</div>
+                    <h3>Frações</h3>
+                    <p>Metades, terços, quartetos e operações</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('fracoes')">Começar</button>
+                </div>
+
+                <div class="category-card" data-category="geometria">
+                    <div class="category-icon">📐</div>
+                    <h3>Geometria</h3>
+                    <p>Formas, áreas, perímetros e volumes</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('geometria')">Começar</button>
+                </div>
+
+                <div class="category-card" data-category="geral">
+                    <div class="category-icon">🔄</div>
+                    <h3>Geral (todas)</h3>
+                    <p>Mistura de todas as categorias</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('geral')">Começar</button>
+                </div>
+            </div>
+
+            <!-- Modal de Seleção de Dificuldade -->
+            <div id="difficulty-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Escolha a Dificuldade</h2>
+                    <p id="modal-category-name"></p>
+                    <div class="difficulty-options">
+                        <button class="diff-btn" data-diff="facil" onclick="iniciarQuizModal('facil')">
+                            <span class="diff-icon">🌱</span>
+                            <span class="diff-name">Fácil</span>
+                            <span class="diff-desc">5 perguntas básicas</span>
+                        </button>
+                        <button class="diff-btn" data-diff="medio" onclick="iniciarQuizModal('medio')">
+                            <span class="diff-icon">⭐</span>
+                            <span class="diff-name">Médio</span>
+                            <span class="diff-desc">5 perguntas intermediárias</span>
+                        </button>
+                        <button class="diff-btn" data-diff="dificil" onclick="iniciarQuizModal('dificil')">
+                            <span class="diff-icon">🔥</span>
+                            <span class="diff-name">Difícil</span>
+                            <span class="diff-desc">5 perguntas avançadas</span>
+                        </button>
+                        <button class="diff-btn" data-diff="impossivel" onclick="iniciarQuizModal('impossivel')">
+                            <span class="diff-icon">😈</span>
+                            <span class="diff-name">Impossível</span>
+                            <span class="diff-desc">Desafios extremos</span>
+                        </button>
+                        <button class="diff-btn" data-diff="master" onclick="iniciarQuizModal('master')">
+                            <span class="diff-icon">🏆</span>
+                            <span class="diff-name">Master</span>
+                            <span class="diff-desc">Desafios de concurso</span>
+                        </button>
+                    </div>
+                    <button class="btn-close-modal" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </div>
+
+                <div class="category-card" data-category="fracoes">
+                    <div class="category-icon">🍰</div>
+                    <h3>Frações</h3>
+                    <p>Metades, terços, quartetos e operações</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('fracoes')">Começar</button>
+                </div>
+
+                <div class="category-card" data-category="geometria">
+                    <div class="category-icon">📐</div>
+                    <h3>Geometria</h3>
+                    <p>Formas, áreas, perímetros e volumes</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('geometria')">Começar</button>
+                </div>
+
+                <div class="category-card" data-category="geral">
+                    <div class="category-icon">🔄</div>
+                    <h3>Geral (todas)</h3>
+                    <p>Mistura de todas as categorias</p>
+                    <button class="btn-start-category" onclick="abrirDificuldade('geral')">Começar</button>
+                </div>
+            </div>
+
+            <!-- Quiz Area -->
+            <div class="quiz-container">
+                <div id="quiz-menu" class="quiz-menu">
+                    <div class="menu-illustration">🧮</div>
+                    <p> Escolha uma categoria acima para começar!</p>
+                <div class="difficulty-selector">
+                    <label>Dificuldade:</label>
+                    <select id="difficulty">
+                        <option value="facil">Fácil</option>
+                        <option value="medio">Médio</option>
+                        <option value="dificil">Difícil</option>
+                        <option value="impossivel">😈 Impossível</option>
+                        <option value="master">🔥 Master</option>
+                    </select>
+                </div>
+                </div>
+
+                <div id="quiz-active" class="quiz-active" style="display:none;">
+                    <div class="quiz-header">
+                        <h3 id="quiz-category-title"></h3>
+                        <div class="quiz-meta">
+                            <span class="difficulty-badge" id="difficulty-badge"></span>
+                            <div class="quiz-progress">
+                                <span id="current-question">1</span> / <span id="total-questions">5</span>
+                            </div>
+                            <div class="quiz-timer" id="timer">--:--</div>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <p id="question-text" class="question-text"></p>
+                        <div class="answer-area">
+                            <input type="text" id="answer-input" placeholder="Digite sua resposta..." autocomplete="off">
+                            <button id="submit-answer" class="btn-primary">Responder</button>
+                        </div>
+                        <div class="hint-area">
+                            <button id="hint-btn" class="btn-hint">💡 Dica</button>
+                            <span id="hint-text"></span>
+                        </div>
+                        <div id="feedback" class="feedback"></div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button id="next-question" class="btn-secondary" style="display:none;">Próxima →</button>
+                        <button id="quit-quiz" class="btn-secondary">← Voltar</button>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="quiz-result" style="display:none;">
+                    <div class="result-card">
+                        <div class="result-badge" id="result-badge">🏆</div>
+                        <h3>Quiz Concluído!</h3>
+                        <div class="score-circle">
+                            <span id="final-score">0</span>%
+                        </div>
+                        <p id="score-detail"></p>
+                        <div class="performance-message" id="performance-msg"></div>
+
+                        <div class="result-actions">
+                            <button id="retry-quiz" class="btn-primary">🔄 Tentar Novamente</button>
+                            <button id="share-result" class="btn-secondary">📤 Compartilhar</button>
+                            <button id="back-menu-quiz" class="btn-secondary">← Menu</button>
+                        </div>
+
+                        <div class="review-section" id="review-section" style="display:none;">
+                            <h4>Revisão das Respostas:</h4>
+                            <div id="answers-review"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Curiosidades -->
+        <section id="curiosidades" class="section">
+            <div class="section-header">
+                <h2>💡 Curiosidades Matemáticas</h2>
+                <p>Descubra o lado fascinante da matemática!</p>
+            </div>
+
+            <div class="curiosidades-grid">
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">🔢</div>
+                    <h3>Número Pi (π)</h3>
+                    <p>π é um número irracional que representa a razão entre a circunferência e o diâmetro de um círculo. Já foi calculado com mais de 62 trilhões de casas decimais!</p>
+                    <span class="curiosidade-tag">Geometria</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">🌀</div>
+                    <h3>Sequência de Fibonacci</h3>
+                    <p>1, 1, 2, 3, 5, 8, 13... Cada número é a soma dos dois anteriores. Aparece na natureza: conchas, flores, galhos de árvores!</p>
+                    <span class="curiosidade-tag">Sequências</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">🔺</div>
+                    <h3>Triângulo de Pascal</h3>
+                    <p>Triângulo mágico onde cada número é soma dos dois acima. Esconde padrões de números primos, potências de 11 e muito mais!</p>
+                    <span class="curiosidade-tag">Álgebra</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">∞</div>
+                    <h3>Número Infinito</h3>
+                    <p>Existem infinitos números inteiros, mas também infinitos números entre 0 e 1! Você sabia que existem diferentes "tamanhos" de infinito?</p>
+                    <span class="curiosidade-tag">Teoria dos Números</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">🔷</div>
+                    <h3>Número de Ouro (φ)</h3>
+                    <p>φ = 1,618... considerado o número da beleza ideal. Está na proporção do Partenon, na Mona Lisa e até na própria natureza!</p>
+                    <span class="curiosidade-tag">Proporção</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">🎲</div>
+                    <h3>Paradoxo de Monty Hall</h3>
+                    <p>Num jogo com 3 portas, trocar a escolha aumenta sua chance de ganhar de 33% para 66%! Contraintuitivo, mas matemático.</p>
+                    <span class="curiosidade-tag">Probabilidade</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">🔟</div>
+                    <h3>Sistema Decimal</h3>
+                    <p>Usamos base 10 porque temos 10 dedos! Outras culturas usaram base 20 (dedos + dedos do pé) ou base 60 (sumérios, ainda usamos no tempo).</p>
+                    <span class="curiosidade-tag">História</span>
+                </div>
+
+                <div class="curiosidade-card">
+                    <div class="curiosidade-icon">👨‍🔬</div>
+                    <h3>Pitágoras</h3>
+                    <p>Pitágoras (570-495 a.C.) descobriu que a² + b² = c² nos triângulos retângulos. Sua seitas acreditava que "tudo é número"!</p>
+                    <span class="curiosidade-tag">História</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Apostilas -->
+        <section id="apostilas" class="section">
+            <div class="section-header">
+                <h2>📚 Apostilas e Materiais</h2>
+                <p>Recursos didáticos para aprender matemática</p>
+            </div>
+
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">📖</div>
+                    <h3>Operações Básicas</h3>
+                    <p>Guia completo de adição, subtração, multiplicação e divisão com exercícios práticos e exemplos ilustrados.</p>
+                    <div class="material-meta">
+                        <span>📄 24 páginas</span>
+                        <span>⭐ 4.8/5</span>
+                    </div>
+                    <button class="btn-download" onclick="downloadMaterial('operacoes')">📥 Baixar PDF</button>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">🍕</div>
+                    <h3>Frações Divertidas</h3>
+                    <p>Aprenda frações usando pizza, brigadeiro e outros exemplos do dia a dia. Inclui jogos e atividades.</p>
+                    <div class="material-meta">
+                        <span>📄 18 páginas</span>
+                        <span>⭐ 4.9/5</span>
+                    </div>
+                    <button class="btn-download" onclick="downloadMaterial('fracoes')">📥 Baixar PDF</button>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">📐</div>
+                    <h3>Geometria Visual</h3>
+                    <p>Formas geométricas, perímetro, área e volume com ilustrações coloridas e atividades práticas.</p>
+                    <div class="material-meta">
+                        <span>📄 32 páginas</span>
+                        <span>⭐ 4.7/5</span>
+                    </div>
+                    <button class="btn-download" onclick="downloadMaterial('geometria')">📥 Baixar PDF</button>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">🧮</div>
+                    <h3>Tabuada Visual</h3>
+                    <p>Método visual para memorizar a tabuada de 1 a 10 de forma rápida e divertida. Com卡片 para imprimir.</p>
+                    <div class="material-meta">
+                        <span>📄 12 páginas</span>
+                        <span>⭐ 4.9/5</span>
+                    </div>
+                    <button class="btn-download" onclick="downloadMaterial('tabuada')">📥 Baixar PDF</button>
+                </div>
+
+                <div class="material-card featured">
+                    <div class="featured-badge">🌟 Mais Popular</div>
+                    <div class="material-icon">📚</div>
+                    <h3>Pacote Completo 5º Ano</h3>
+                    <p>Todas as apostilas acima em um só pacote + bônus: planilha de acompanhamento e certificado.</p>
+                    <div class="material-meta">
+                        <span>📄 86 páginas</span>
+                        <span>⭐ 5.0/5</span>
+                    </div>
+                    <button class="btn-download" onclick="downloadMaterial('completo')">📥 Baixar Pacote</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Jogos -->
+        <section id="jogos" class="section">
+            <div class="section-header">
+                <h2>🎮 Jogos Educativos</h2>
+                <p>Aprenda matemática brincando!</p>
+            </div>
+
+            <div class="games-grid">
+                <div class="game-card" data-game="batalha">
+                    <div class="game-preview">⚔️</div>
+                    <h3>Batalha de Contas</h3>
+                    <p>Resolva contas rapidamente para derrotar inimigos! Cada acerto dá dano no monstro.</p>
+                    <div class="game-stats">
+                        <span>🔥 1.2k jogando</span>
+                        <span>⭐ 4.8</span>
+                    </div>
+                    <button class="btn-play" onclick="playGame('batalha')">▶ Jogar</button>
+                </div>
+
+                <div class="game-card" data-game="caixa-forte">
+                    <div class="game-preview">🔐</div>
+                    <h3>Caixa Forte Matemática</h3>
+                    <p>Descubra o código secreto resolvendo problemas. Cada acerto aproxima você do tesouro!</p>
+                    <div class="game-stats">
+                        <span>🔥 890 jogando</span>
+                        <span>⭐ 4.6</span>
+                    </div>
+                    <button class="btn-play" onclick="playGame('caixa-forte')">▶ Jogar</button>
+                </div>
+
+                <div class="game-card" data-game="corrida">
+                    <div class="game-preview">🏎️</div>
+                    <h3>Corrida das Tabuadas</h3>
+                    <p>Complete a tabuada para acelerar seu carro! Desvie de obstáculos respondendo corretamente.</p>
+                    <div class="game-stats">
+                        <span>🔥 2.1k jogando</span>
+                        <span>⭐ 4.9</span>
+                    </div>
+                    <button class="btn-play" onclick="playGame('corrida')">▶ Jogar</button>
+                </div>
+
+                <div class="game-card" data-game="quiz-rapido">
+                    <div class="game-preview">⏱️</div>
+                    <h3>Quiz Relâmpago</h3>
+                    <p>Responda o máximo de perguntas em 60 segundos! Desafie seus amigos e entre no ranking.</p>
+                    <div class="game-stats">
+                        <span>🔥 3.5k jogando</span>
+                        <span>⭐ 4.7</span>
+                    </div>
+                    <button class="btn-play" onclick="playGame('quiz-rapido')">▶ Jogar</button>
+                </div>
+
+                <div class="game-card" data-game="memory-numeros">
+                    <div class="game-preview">🧩</div>
+                    <h3>Memory dos Números</h3>
+                    <p>Jogo da memória com operações matemáticas. Encontre os pares de contas e resultados.</p>
+                    <div class="game-stats">
+                        <span>🔥 654 jogando</span>
+                        <span>⭐ 4.5</span>
+                    </div>
+                    <button class="btn-play" onclick="playGame('memory')">▶ Jogar</button>
+                </div>
+
+                <div class="game-card" data-game="forca-matematica">
+                    <div class="game-preview">🪢</div>
+                    <h3>Forca Matemática</h3>
+                    <p>Adivinhe a palavra relacionada à matemática antes que o boneco seja enforcado!</p>
+                    <div class="game-stats">
+                        <span>🔥 920 jogando</span>
+                        <span>⭐ 4.4</span>
+                    </div>
+                    <button class="btn-play" onclick="playGame('forca')">▶ Jogar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Vídeos -->
+        <section id="videos" class="section">
+            <div class="section-header">
+                <h2>🎬 Vídeos Aulas</h2>
+                <p>Aprenda com vídeos curtos e dinâmicos</p>
+            </div>
+
+            <div class="video-categories">
+                <button class="video-filter active" data-filter="todas">Todas</button>
+                <button class="video-filter" data-filter="operacoes">Operações</button>
+                <button class="video-filter" data-filter="fracoes">Frações</button>
+                <button class="video-filter" data-filter="geometria">Geometria</button>
+                <button class="video-filter" data-filter="curiosidades">Curiosidades</button>
+            </div>
+
+            <div class="videos-grid">
+                <div class="video-card" data-category="operacoes">
+                    <div class="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <span class="video-duration">08:32</span>
+                    </div>
+                    <h3>Adição e Subtração</h3>
+                    <p>Aprenda truques para somar e subtrair rápido!</p>
+                    <div class="video-meta">
+                        <span>👁️ 15.2k visualizações</span>
+                        <span>📅 Há 2 dias</span>
+                    </div>
+                </div>
+
+                <div class="video-card" data-category="fracoes">
+                    <div class="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <span class="video-duration">12:45</span>
+                    </div>
+                    <h3>Frações na Pizza</h3>
+                    <p>Entenda frações de forma divertida com exemplos com pizza!</p>
+                    <div class="video-meta">
+                        <span>👁️ 8.7k visualizações</span>
+                        <span>📅 Há 1 semana</span>
+                    </div>
+                </div>
+
+                <div class="video-card" data-category="geometria">
+                    <div class="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <span class="video-duration">15:10</span>
+                    </div>
+                    <h3>Formas Geométricas</h3>
+                    <p>Conheça todas as formas e quantos lados cada uma tem.</p>
+                    <div class="video-meta">
+                        <span>👁️ 22.1k visualizações</span>
+                        <span>📅 Há 3 semanas</span>
+                    </div>
+                </div>
+
+                <div class="video-card" data-category="curiosidades">
+                    <div class="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <span class="video-duration">06:20</span>
+                    </div>
+                    <h3>O Número Pi</h3>
+                    <p> Tudo sobre π: o número mais famoso da matemática!</p>
+                    <div class="video-meta">
+                        <span>👁️ 45.3k visualizações</span>
+                        <span>📅 Há 1 mês</span>
+                    </div>
+                </div>
+
+                <div class="video-card" data-category="operacoes">
+                    <div class="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <span class="video-duration">10:15</span>
+                    </div>
+                    <h3>Tabuada Mágica</h3>
+                    <p>Dicas infalíveis para memorizar a tabuada de vez.</p>
+                    <div class="video-meta">
+                        <span>👁️ 31.5k visualizações</span>
+                        <span>📅 Há 2 meses</span>
+                    </div>
+                </div>
+
+                <div class="video-card" data-category="fracoes">
+                    <div class="video-thumb">
+                        <div class="play-icon">▶</div>
+                        <span class="video-duration">09:48</span>
+                    </div>
+                    <h3>Comparando Frações</h3>
+                    <p>Aprenda a descobrir qual fração é maior facilmente.</p>
+                    <div class="video-meta">
+                        <span>👁️ 12.4k visualizações</span>
+                        <span>📅 Há 2 meses</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Exercícios -->
+        <section id="exercicios" class="section">
+            <div class="section-header">
+                <h2>📄 Exercícios Práticos</h2>
+                <p>Pratique com listas de exercícios organizadas por tema</p>
+            </div>
+
+            <div class="exercises-filters">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="facil">Fácil</button>
+                <button class="filter-btn" data-filter="medio">Médio</button>
+                <button class="filter-btn" data-filter="dificil">Difícil</button>
+            </div>
+
+            <div class="exercises-grid">
+                <div class="exercise-card" data-difficulty="facil">
+                    <div class="exercise-header">
+                        <span class="difficulty-badge easy">Fácil</span>
+                        <span class="exercise-count">20 questões</span>
+                    </div>
+                    <h3>Adição até 100</h3>
+                    <p>Pratique somas simples até 100.</p>
+                    <button class="btn-start" onclick="startExercise('adicao')">Começar Exercício</button>
+                </div>
+
+                <div class="exercise-card" data-difficulty="facil">
+                    <div class="exercise-header">
+                        <span class="difficulty-badge easy">Fácil</span>
+                        <span class="exercise-count">15 questões</span>
+                    </div>
+                    <h3>Subtração Básica</h3>
+                    <p>Subtrações até 100 sem empréstimo.</p>
+                    <button class="btn-start" onclick="startExercise('subtracao')">Começar Exercício</button>
+                </div>
+
+                <div class="exercise-card" data-difficulty="medio">
+                    <div class="exercise-header">
+                        <span class="difficulty-badge medium">Médio</span>
+                        <span class="exercise-count">25 questões</span>
+                    </div>
+                    <h3>Multiplicação</h3>
+                    <p>Tabuada completa com números até 12.</p>
+                    <button class="btn-start" onclick="startExercise('multiplicacao')">Começar Exercício</button>
+                </div>
+
+                <div class="exercise-card" data-difficulty="medio">
+                    <div class="exercise-header">
+                        <span class="difficulty-badge medium">Médio</span>
+                        <span class="exercise-count">18 questões</span>
+                    </div>
+                    <h3>Frações Equivalentes</h3>
+                    <p>Encontre frações que representam a mesma quantidade.</p>
+                    <button class="btn-start" onclick="startExercise('fracoes-equiv')">Começar Exercício</button>
+                </div>
+
+                <div class="exercise-card" data-difficulty="dificil">
+                    <div class="exercise-header">
+                        <span class="difficulty-badge hard">Difícil</span>
+                        <span class="exercise-count">12 questões</span>
+                    </div>
+                    <h3>Problemas de Divisão</h3>
+                    <p>Problemas envolvendo divisão com resto.</p>
+                    <button class="btn-start" onclick="startExercise('divisao')">Começar Exercício</button>
+                </div>
+
+                <div class="exercise-card" data-difficulty="dificil">
+                    <div class="exercise-header">
+                        <span class="difficulty-badge hard">Difícil</span>
+                        <span class="exercise-count">10 questões</span>
+                    </div>
+                    <h3>Área e Perímetro</h3>
+                    <p>Calcule área e perímetro de figuras planas.</p>
+                    <button class="btn-start" onclick="startExercise('area')">Começar Exercício</button>
+                </div>
+            </div>
+
+            <!-- Gerador de Exercícios -->
+            <div class="exercise-generator">
+                <h3>🔧 Gerador de Exercícios Personalizados</h3>
+                <div class="generator-form">
+                    <div class="form-group">
+                        <label>Tipo de Operação:</label>
+                        <select id="exercise-type">
+                            <option value="adicao">Adição</option>
+                            <option value="subtracao">Subtração</option>
+                            <option value="multiplicacao">Multiplicação</option>
+                            <option value="divisao">Divisão</option>
+                            <option value="fracoes">Frações</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Número de Questões:</label>
+                        <input type="number" id="exercise-count" min="5" max="50" value="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Dificuldade:</label>
+                        <select id="exercise-difficulty">
+                            <option value="facil">Fácil</option>
+                            <option value="medio">Médio</option>
+                            <option value="dificil">Difícil</option>
+                        </select>
+                    </div>
+                    <button class="btn-generate" onclick="generateExercise()">🔄 Gerar PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Ranking -->
+        <section id="ranking" class="section">
+            <div class="section-header">
+                <h2>🏆 Ranking de Pontuação</h2>
+                <p>Os melhores alunos do mês</p>
+            </div>
+
+            <div class="ranking-filters">
+                <button class="rank-filter active" data-period="semanal">Semanal</button>
+                <button class="rank-filter" data-period="mensal">Mensal</button>
+                <button class="rank-filter" data-period="total">Total</button>
+            </div>
+
+            <div class="ranking-table">
+                <div class="rank-header">
+                    <span>Pos.</span>
+                    <span>Aluno</span>
+                    <span>Pontuação</span>
+                    <span>Categoria</span>
+                </div>
+                <div id="ranking-list">
+                    <div class="rank-row gold">
+                        <span class="position">🥇 1º</span>
+                        <span class="name">Maria Silva</span>
+                        <span class="score">98%</span>
+                        <span class="category">Operações</span>
+                    </div>
+                    <div class="rank-row silver">
+                        <span class="position">🥈 2º</span>
+                        <span class="name">João Santos</span>
+                        <span class="score">95%</span>
+                        <span class="category">Frações</span>
+                    </div>
+                    <div class="rank-row bronze">
+                        <span class="position">🥉 3º</span>
+                        <span class="name">Ana Oliveira</span>
+                        <span class="score">92%</span>
+                        <span class="category">Geometria</span>
+                    </div>
+                    <div class="rank-row">
+                        <span class="position">4º</span>
+                        <span class="name">Pedro Lima</span>
+                        <span class="score">88%</span>
+                        <span class="category">Operações</span>
+                    </div>
+                    <div class="rank-row">
+                        <span class="position">5º</span>
+                        <span class="name">Carla Souza</span>
+                        <span class="score">85%</span>
+                        <span class="category">Geral</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-rank">
+                <h3>Sua Posição:</h3>
+                <div class="user-rank-card">
+                    <span class="user-position">#127</span>
+                    <div class="user-info">
+                        <strong>Você</strong>
+                        <span>Melhor score: 76%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="sobre" class="section">
+            <div class="section-header">
+                <h2>ℹ️ Sobre o Projeto</h2>
+                <p>Conheça nossa missão e história</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>🎯 Missão</h3>
+                    <p>Transformar o aprendizado da matemática em uma experiência divertida e acessível para crianças do 5º ano, usando tecnologia e metodologias inovadoras.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3>📊 Estatísticas</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">1.500+</span>
+                            <span class="stat-label">Alunos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2.400+</span>
+                            <span class="stat-label">Questões</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">89%</span>
+                            <span class="stat-label">Aprovação</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>📞 Contato</h3>
+                    <p>📧 Email: contato@matematicadivertida.com</p>
+                    <p>📱 WhatsApp: (11) 98765-4321</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘 Facebook</a>
+                        <a href="#" class="social-link">📸 Instagram</a>
+                        <a href="#" class="social-link">▶ YouTube</a>
+                        <a href="#" class="social-link">🐙 GitHub</a>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>💡 Como Usar</h3>
+                    <ol class="steps-list">
+                        <li>Escolha uma categoria no Quiz</li>
+                        <li>Defina a dificuldade (Fácil/Médio/Difícil)</li>
+                        <li>Responda às perguntas com calma</li>
+                        <li>Confira seu resultado e revise</li>
+                        <li>Explore as curiosidades e materiais</li>
+                        <li>Jogue os games educativos!</li>
+                    </ol>
+                </div>
+
+                <div class="about-card">
+                    <h3>🏅 Sistema de Recompensas</h3>
+                    <p>Complete quizzes, acerte questões e suba no ranking! Ganhe medalhas, estrelas e desbloqueie conquistas especiais.</p>
+                    <div class="rewards-preview">
+                        <span class="reward-item">🥉 Bronze</span>
+                        <span class="reward-item">🥈 Prata</span>
+                        <span class="reward-item">🥇 Ouro</span>
+                        <span class="reward-item">💎 Diamante</span>
+                    </div>
+                </div>
+
+                <div class="about-card">
+                    <h3>📈 Progresso Contínuo</h3>
+                    <p>Acompanhe sua evolução com gráficos detalhados. Veja quais temas precisa melhorar e receba recomendações personalizadas.</p>
+                    <button class="btn-primary" onclick="showSection('progresso')">Ver Meu Progresso</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Progresso (Nova!) -->
+        <section id="progresso" class="section">
+            <div class="section-header">
+                <h2>📈 Meu Progresso</h2>
+                <p>Acompanhe sua evolução nos estudos</p>
+            </div>
+
+            <div class="progress-overview">
+                <div class="progress-card">
+                    <h3>📊 Estatísticas Gerais</h3>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-number" id="total-questions-answered">0</span>
+                            <span class="stat-label">Questões Respondidas</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="accuracy-rate">0%</span>
+                            <span class="stat-label">Taxa de Acerto</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="study-streak">0</span>
+                            <span class="stat-label">Dias Seguidos</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="total-points">0</span>
+                            <span class="stat-label">Pontos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <h3>📁 Desempenho por Categoria</h3>
+                    <div class="category-perf">
+                        <div class="perf-item">
+                            <span class="perf-label">🔢 Operações</span>
+                            <div class="perf-bar">
+                                <div class="perf-fill" id="perf-op" style="width: 0%"></div>
+                            </div>
+                            <span class="perf-value" id="value-op">0%</span>
+                        </div>
+                        <div class="perf-item">
+                            <span class="perf-label">🍰 Frações</span>
+                            <div class="perf-bar">
+                                <div class="perf-fill" id="perf-frac" style="width: 0%"></div>
+                            </div>
+                            <span class="perf-value" id="value-frac">0%</span>
+                        </div>
+                        <div class="perf-item">
+                            <span class="perf-label">📐 Geometria</span>
+                            <div class="perf-bar">
+                                <div class="perf-fill" id="perf-geo" style="width: 0%"></div>
+                            </div>
+                            <span class="perf-value" id="value-geo">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <h3>🎯 Conquistas</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement locked">
+                            <span class="achievement-icon">🔓</span>
+                            <span class="achievement-name">Primeiro Passo</span>
+                            <p>Responda 10 questões</p>
+                        </div>
+                        <div class="achievement locked">
+                            <span class="achievement-icon">🔓</span>
+                            <span class="achievement-name">Estudante</span>
+                            <p>Acertar 80% em um quiz</p>
+                        </div>
+                        <div class="achievement locked">
+                            <span class="achievement-icon">🔓</span>
+                            <span class="achievement-name">Mestre</span>
+                            <p>Acertar 100% em 3 quizzes</p>
+                        </div>
+                        <div class="achievement unlocked">
+                            <span class="achievement-icon">🏆</span>
+                            <span class="achievement-name">Iniciante</span>
+                            <p>Completar o primeiro quiz</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <h3>📅 Histórico Recente</h3>
+                    <div class="history-list" id="history-list">
+                        <!-- Preenchido via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🔢 Matemática Divertida</h4>
+                <p>Educação com alegria desde 2024. Feito com ❤️ para alunos do 5º ano.</p>
+            </div>
+            <div class="footer-section">
+                <h4>🔗 Links Úteis</h4>
+                <ul>
+                    <li><a href="#" data-section="apostilas">Apostilas</a></li>
+                    <li><a href="#" data-section="jogos">Jogos</a></li>
+                    <li><a href="#" data-section="videos">Vídeos</a></li>
+                    <li><a href="#" data-section="ranking">Ranking</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>📱 Redes Sociais</h4>
+                <div class="footer-social">
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">▶</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Matemática Divertida. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

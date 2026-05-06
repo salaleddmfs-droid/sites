@@ -6,11 +6,11 @@ Uma galeria moderna de links para websites, com tema e autor exibidos abaixo de 
 
 - ✅ Design responsivo (mobile, tablet, desktop)
 - ✅ Busca em tempo real por tema ou autor
-- ✅ Filtros por categoria (Design, Tecnologia, Negócios, Educação)
+- ✅ Filtros por categoria gerados automaticamente
 - ✅ Efeitos hover com zoom na imagem
 - ✅ Tema escuro moderno com gradientes
 - ✅ Animações suaves de entrada
-- ✅ 12 itens de exemplo
+- ✅ Dados lidos automaticamente de `site1/dados.txt`
 
 ## Como usar
 
@@ -19,23 +19,25 @@ Uma galeria moderna de links para websites, com tema e autor exibidos abaixo de 
 3. Clique nos botões de categoria para filtrar
 4. Clique em uma imagem para visitar o site
 
-## Adicionar novos links
+## Adicionar novos sites
 
-Edite o arquivo `script.js` e modifique o array `galleryData`:
+Edite o arquivo `site1/dados.txt` e adicione um novo objeto à lista JSON:
 
-```javascript
-const galleryData = [
+```json
+[
     {
-        id: 1,
-        image: 'URL_DA_IMAGEM',
-        theme: 'Nome do Tema',
-        author: 'Nome do Autor',
-        category: 'categoria', // design, tecnologia, negocios, educacao
-        url: 'URL_DO_SITE'
-    },
-    // ... mais itens
-];
+        "id": 10,
+        "tema": "Nome do tema",
+        "autor": "Nome do autor",
+        "categoria": "Categoria",
+        "url": "site1/pasta-do-site/index.html",
+        "imagem": "site1/screenshots/imagem-do-site.png",
+        "descricao": "Resumo curto do site."
+    }
+]
 ```
+
+As imagens usadas no portal ficam em `site1/screenshots/`.
 
 ## Tecnologias
 

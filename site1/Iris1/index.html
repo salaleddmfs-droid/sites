@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemática - Áreas | 5º Ano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">📐 Áreas na Matemática</h1>
+                <ul class="nav-links">
+                    <li><a href="#introducao">Introdução</a></li>
+                    <li><a href="#conceitos">Conceitos</a></li>
+                    <li><a href="#calculos">Cálculos</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#curiosidades">Curiosidades</a></li>
+                    <li><a href="#pratica">Prática</a></li>
+                    <li><a href="#problemas-praticos">Problemas</a></li>
+                    <li><a href="#verdadeiro-falso">V ou F</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção de Introdução -->
+        <section id="introducao" class="section hero">
+            <div class="container">
+                <h2>O que é Área?</h2>
+                <p>A <strong>área</strong> é o espaço que uma figura plana ocupa. É medida em unidades quadradas (m², cm², etc.).</p>
+                <div class="concept-box">
+                    <p>Imagine um retângulo: a área é toda a superfície dentro das linhas!</p>
+                </div>
+                
+                <div class="introducao-desafio">
+                    <h3>🎯 Desafio: Consegues calcular a área deste triângulo?</h3>
+                    <svg viewBox="0 0 300 250" class="triangle-challenge">
+                        <!-- Triângulo -->
+                        <polygon points="150,30 270,220 30,220" fill="rgba(255,255,255,0.9)" stroke="white" stroke-width="3"/>
+                        
+                        <!-- Base -->
+                        <line x1="30" y1="220" x2="270" y2="220" stroke="white" stroke-width="2"/>
+                        <line x1="25" y1="220" x2="25" y2="215" stroke="white" stroke-width="2"/>
+                        <line x1="270" y1="220" x2="270" y2="215" stroke="white" stroke-width="2"/>
+                        <text x="150" y="245" text-anchor="middle" font-size="18" font-weight="bold" fill="black">base = 8 cm</text>
+                        
+                        <!-- Altura (linha tracejada) -->
+                        <line x1="150" y1="30" x2="150" y2="220" stroke="white" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="165" y="130" font-size="16" font-weight="bold" fill="black">a = 6 cm</text>
+                        
+                        <!-- Ponto no topo -->
+                        <circle cx="150" cy="30" r="4" fill="white"/>
+                    </svg>
+                    <p class="desafio-texto">Dicas: Lembra de multiplicar base x altura e depois dividir por 2!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Conceitos -->
+        <section id="conceitos" class="section">
+            <div class="container">
+                <h2>Figuras e Suas Áreas</h2>
+                
+                <div class="cards-grid">
+                    <!-- Retângulo -->
+                    <div class="card">
+                        <h3>Retângulo</h3>
+                        <svg viewBox="0 0 200 120" class="shape-svg">
+                            <rect x="20" y="20" width="160" height="80" fill="#ff9999" stroke="#333" stroke-width="2"/>
+                            <text x="100" y="65" text-anchor="middle" font-size="14">Retângulo</text>
+                            <text x="100" y="100" text-anchor="middle" font-size="12">Comprimento: 160</text>
+                        </svg>
+                        <p><strong>Fórmula:</strong> A = comprimento × altura</p>
+                        <p class="formula">A = c × h</p>
+                    </div>
+
+                    <!-- Quadrado -->
+                    <div class="card">
+                        <h3>Quadrado</h3>
+                        <svg viewBox="0 0 200 120" class="shape-svg">
+                            <rect x="40" y="20" width="120" height="120" fill="#99ccff" stroke="#333" stroke-width="2"/>
+                            <text x="100" y="80" text-anchor="middle" font-size="14">Quadrado</text>
+                            <text x="100" y="100" text-anchor="middle" font-size="12">Lado: 120</text>
+                        </svg>
+                        <p><strong>Fórmula:</strong> A = lado × lado</p>
+                        <p class="formula">A = l²</p>
+                    </div>
+
+                    <!-- Triângulo -->
+                    <div class="card">
+                        <h3>Triângulo</h3>
+                        <svg viewBox="0 0 200 120" class="shape-svg">
+                            <polygon points="100,20 180,100 20,100" fill="#99ff99" stroke="#333" stroke-width="2"/>
+                            <text x="100" y="70" text-anchor="middle" font-size="14">Triângulo</text>
+                            <text x="100" y="90" text-anchor="middle" font-size="12">Base: 160</text>
+                        </svg>
+                        <p><strong>Fórmula:</strong> A = (base × altura) ÷ 2</p>
+                        <p class="formula">A = (b × h) ÷ 2</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Explicações Detalhadas -->
+        <section class="section">
+            <div class="container">
+                <h2>📖 Como Calcular as Áreas - Passo a Passo</h2>
+                
+                <div class="explicacoes-grid">
+                    <!-- Explicação Quadrado -->
+                    <div class="explicacao-card">
+                        <div class="explicacao-titulo">
+                            <span class="icon">⬜</span>
+                            <h3>Quadrado</h3>
+                        </div>
+                        <div class="explicacao-conteudo-flex">
+                            <div class="explicacao-visual">
+                                <svg viewBox="0 0 200 200" class="shape-diagram">
+                                    <rect x="40" y="40" width="120" height="120" fill="#e3f2fd" stroke="#667eea" stroke-width="3"/>
+                                    <line x1="40" y1="170" x2="160" y2="170" stroke="#667eea" stroke-width="2"/>
+                                    <line x1="35" y1="170" x2="35" y2="165" stroke="#667eea" stroke-width="2"/>
+                                    <line x1="160" y1="170" x2="160" y2="165" stroke="#667eea" stroke-width="2"/>
+                                    <text x="100" y="190" text-anchor="middle" font-size="14" font-weight="bold" fill="#667eea">lado = 5 cm</text>
+                                    <text x="15" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#667eea">lado</text>
+                                    <text x="100" y="105" text-anchor="middle" font-size="16" font-weight="bold" fill="#764ba2">5 cm</text>
+                                </svg>
+                            </div>
+                            <div class="explicacao-texto">
+                                <p class="descricao">Um quadrado é uma figura com <strong>4 lados iguais</strong> e <strong>4 ângulos retos (90°)</strong>.</p>
+                                <div class="passo-a-passo">
+                                    <div class="passo">
+                                        <span class="numero-passo">1</span>
+                                        <p>Meça o <strong>lado</strong> do quadrado</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">2</span>
+                                        <p>Multiplique o lado <strong>por ele mesmo</strong></p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">3</span>
+                                        <p>Adicione a unidade <strong>ao quadrado (²)</strong></p>
+                                    </div>
+                                </div>
+                                <div class="formula-box">
+                                    <p><strong>Fórmula:</strong> A = l × l = l²</p>
+                                    <p class="exemplo">Exemplo: lado = 5 cm → A = 5 × 5 = <span>25 cm²</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explicação Retângulo -->
+                    <div class="explicacao-card">
+                        <div class="explicacao-titulo">
+                            <span class="icon">▭</span>
+                            <h3>Retângulo</h3>
+                        </div>
+                        <div class="explicacao-conteudo-flex">
+                            <div class="explicacao-visual">
+                                <svg viewBox="0 0 200 200" class="shape-diagram">
+                                    <rect x="20" y="50" width="160" height="100" fill="#e8f5e9" stroke="#764ba2" stroke-width="3"/>
+                                    <line x1="20" y1="160" x2="180" y2="160" stroke="#764ba2" stroke-width="2"/>
+                                    <line x1="15" y1="160" x2="15" y2="155" stroke="#764ba2" stroke-width="2"/>
+                                    <line x1="180" y1="160" x2="180" y2="155" stroke="#764ba2" stroke-width="2"/>
+                                    <text x="100" y="180" text-anchor="middle" font-size="14" font-weight="bold" fill="#764ba2">comprimento = 6 cm</text>
+                                    <line x1="180" y1="50" x2="190" y2="50" stroke="#764ba2" stroke-width="2"/>
+                                    <line x1="190" y1="50" x2="190" y2="150" stroke="#764ba2" stroke-width="2"/>
+                                    <line x1="180" y1="150" x2="190" y2="150" stroke="#764ba2" stroke-width="2"/>
+                                    <text x="210" y="105" text-anchor="start" font-size="12" font-weight="bold" fill="#764ba2">a = 4 cm</text>
+                                    <text x="100" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#764ba2">6 cm × 4 cm</text>
+                                </svg>
+                            </div>
+                            <div class="explicacao-texto">
+                                <p class="descricao">Um retângulo é uma figura com <strong>4 lados</strong> (2 pares iguais) e <strong>4 ângulos retos (90°)</strong>.</p>
+                                <div class="passo-a-passo">
+                                    <div class="passo">
+                                        <span class="numero-passo">1</span>
+                                        <p>Meça o <strong>comprimento</strong> (lado maior)</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">2</span>
+                                        <p>Meça a <strong>altura</strong> (lado menor)</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">3</span>
+                                        <p>Multiplique comprimento × altura</p>
+                                    </div>
+                                </div>
+                                <div class="formula-box">
+                                    <p><strong>Fórmula:</strong> A = c × h</p>
+                                    <p class="exemplo">Exemplo: 6 cm × 4 cm = <span>24 cm²</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explicação Paralelogramo -->
+                    <div class="explicacao-card">
+                        <div class="explicacao-titulo">
+                            <span class="icon">▰</span>
+                            <h3>Paralelogramo</h3>
+                        </div>
+                        <div class="explicacao-conteudo-flex">
+                            <div class="explicacao-visual">
+                                <svg viewBox="0 0 200 200" class="shape-diagram">
+                                    <polygon points="40,150 160,150 180,60 60,60" fill="#fff3e0" stroke="#ff9800" stroke-width="3"/>
+                                    <line x1="40" y1="150" x2="160" y2="150" stroke="#ff9800" stroke-width="2"/>
+                                    <line x1="35" y1="150" x2="35" y2="145" stroke="#ff9800" stroke-width="2"/>
+                                    <line x1="160" y1="150" x2="160" y2="145" stroke="#ff9800" stroke-width="2"/>
+                                    <text x="100" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#ff9800">base = 8 cm</text>
+                                    <line x1="100" y1="60" x2="100" y2="150" stroke="#ff9800" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <text x="120" y="110" text-anchor="start" font-size="12" font-weight="bold" fill="#ff9800">a = 5 cm</text>
+                                    <text x="100" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#ff9800">8 cm × 5 cm</text>
+                                </svg>
+                            </div>
+                            <div class="explicacao-texto">
+                                <p class="descricao">Um paralelogramo é uma figura com <strong>4 lados</strong> (lados opostos paralelos e iguais). É como um retângulo "inclinado".</p>
+                                <div class="passo-a-passo">
+                                    <div class="passo">
+                                        <span class="numero-passo">1</span>
+                                        <p>Meça a <strong>base</strong> (lado inferior)</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">2</span>
+                                        <p>Meça a <strong>altura</strong> (linha perpendicular à base)</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">3</span>
+                                        <p>Multiplique base × altura</p>
+                                    </div>
+                                </div>
+                                <div class="formula-box">
+                                    <p><strong>Fórmula:</strong> A = b × h</p>
+                                    <p class="exemplo">Exemplo: 8 cm × 5 cm = <span>40 cm²</span></p>
+                                    <p class="nota">⚠️ Nota: Não use o lado inclinado, use a altura perpendicular!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Explicação Triângulo -->
+                    <div class="explicacao-card">
+                        <div class="explicacao-titulo">
+                            <span class="icon">△</span>
+                            <h3>Triângulo</h3>
+                        </div>
+                        <div class="explicacao-conteudo-flex">
+                            <div class="explicacao-visual">
+                                <svg viewBox="0 0 200 200" class="shape-diagram">
+                                    <polygon points="100,30 180,160 20,160" fill="#f3e5f5" stroke="#9c27b0" stroke-width="3"/>
+                                    <line x1="20" y1="160" x2="180" y2="160" stroke="#9c27b0" stroke-width="2"/>
+                                    <line x1="15" y1="160" x2="15" y2="155" stroke="#9c27b0" stroke-width="2"/>
+                                    <line x1="180" y1="160" x2="180" y2="155" stroke="#9c27b0" stroke-width="2"/>
+                                    <text x="100" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#9c27b0">base = 10 cm</text>
+                                    <line x1="100" y1="30" x2="100" y2="160" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <text x="115" y="100" text-anchor="start" font-size="12" font-weight="bold" fill="#9c27b0">a = 6 cm</text>
+                                    <text x="100" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#9c27b0">Área = 30 cm²</text>
+                                </svg>
+                            </div>
+                            <div class="explicacao-texto">
+                                <p class="descricao">Um triângulo é uma figura com <strong>3 lados</strong> e <strong>3 ângulos</strong>. É sempre metade de um retângulo!</p>
+                                <div class="passo-a-passo">
+                                    <div class="passo">
+                                        <span class="numero-passo">1</span>
+                                        <p>Meça a <strong>base</strong> (um dos lados)</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">2</span>
+                                        <p>Meça a <strong>altura</strong> (linha perpendicular da base ao topo)</p>
+                                    </div>
+                                    <div class="passo">
+                                        <span class="numero-passo">3</span>
+                                        <p>Multiplique base × altura e <strong>divida por 2</strong></p>
+                                    </div>
+                                </div>
+                                <div class="formula-box">
+                                    <p><strong>Fórmula:</strong> A = (b × h) ÷ 2</p>
+                                    <p class="exemplo">Exemplo: (10 cm × 6 cm) ÷ 2 = <span>30 cm²</span></p>
+                                    <p class="nota">💡 Dica: Dois triângulos iguais = um retângulo!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Cálculos -->
+        <section id="calculos" class="section">
+            <div class="container">
+                <h2>💡 Exemplos Práticos</h2>
+                
+                <div class="examples-grid">
+                    <div class="example-box">
+                        <h3>Exemplo 1: Retângulo</h3>
+                        <div class="example-content">
+                            <p>Um retângulo com <strong>comprimento 5 cm</strong> e <strong>altura 3 cm</strong>.</p>
+                            <p>A = 5 × 3 = <span class="answer">15 cm²</span></p>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h3>Exemplo 2: Quadrado</h3>
+                        <div class="example-content">
+                            <p>Um quadrado com <strong>lado 4 cm</strong>.</p>
+                            <p>A = 4 × 4 = <span class="answer">16 cm²</span></p>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h3>Exemplo 3: Triângulo</h3>
+                        <div class="example-content">
+                            <p>Um triângulo com <strong>base 6 cm</strong> e <strong>altura 4 cm</strong>.</p>
+                            <p>A = (6 × 4) ÷ 2 = <span class="answer">12 cm²</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Quiz -->
+        <section id="quiz" class="section">
+            <div class="container">
+                <h2>🎮 Quiz - Teste seus Conhecimentos!</h2>
+                
+                <div class="quiz-container">
+                    <div id="quiz-box" class="quiz-box">
+                        <div class="quiz-header">
+                            <span id="quiz-pergunta-numero" class="quiz-number">Pergunta 1 de 10</span>
+                            <div class="quiz-progress">
+                                <div id="quiz-progress-bar" class="progress-bar"></div>
+                            </div>
+                        </div>
+                        
+                        <h3 id="quiz-pergunta" class="quiz-question"></h3>
+                        
+                        <div id="quiz-opcoes" class="quiz-opcoes"></div>
+                        
+                        <button id="quiz-btn-proximo" onclick="proximaPerguntaQuiz()" class="btn" style="display: none; margin-top: 20px;">Próxima Pergunta →</button>
+                    </div>
+                    
+                    <div id="quiz-resultado" class="quiz-resultado" style="display: none;">
+                        <h3>🎉 Quiz Concluído!</h3>
+                        <div class="resultado-score">
+                            <p id="quiz-score-text" class="score-text"></p>
+                            <div id="quiz-score-circle" class="score-circle">
+                                <span id="quiz-percentage" class="percentage">0%</span>
+                            </div>
+                        </div>
+                        <div id="quiz-feedback" class="quiz-feedback"></div>
+                        <button onclick="reiniciarQuiz()" class="btn" style="margin-top: 20px; max-width: 300px;">Fazer Outra Vez</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Prática -->
+        <section id="pratica" class="section">
+            <div class="container">
+                <h2>✏️ Pratique Você Mesmo!</h2>
+                
+                <div class="calculator-section">
+                    <div class="calc-card">
+                        <h3>Calculadora de Área do Retângulo</h3>
+                        <div class="calc-input">
+                            <label for="rect-comp">Comprimento (cm):</label>
+                            <input type="number" id="rect-comp" placeholder="Ex: 5">
+                        </div>
+                        <div class="calc-input">
+                            <label for="rect-alt">Altura (cm):</label>
+                            <input type="number" id="rect-alt" placeholder="Ex: 3">
+                        </div>
+                        <button onclick="calcularRetangulo()" class="btn">Calcular Área</button>
+                        <p id="rect-result" class="result"></p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Calculadora de Área do Quadrado</h3>
+                        <div class="calc-input">
+                            <label for="quad-lado">Lado (cm):</label>
+                            <input type="number" id="quad-lado" placeholder="Ex: 4">
+                        </div>
+                        <button onclick="calcularQuadrado()" class="btn">Calcular Área</button>
+                        <p id="quad-result" class="result"></p>
+                    </div>
+
+                    <div class="calc-card">
+                        <h3>Calculadora de Área do Triângulo</h3>
+                        <div class="calc-input">
+                            <label for="tri-base">Base (cm):</label>
+                            <input type="number" id="tri-base" placeholder="Ex: 6">
+                        </div>
+                        <div class="calc-input">
+                            <label for="tri-alt">Altura (cm):</label>
+                            <input type="number" id="tri-alt" placeholder="Ex: 4">
+                        </div>
+                        <button onclick="calcularTriangulo()" class="btn">Calcular Área</button>
+                        <p id="tri-result" class="result"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Curiosidades -->
+        <section id="curiosidades" class="section">
+            <div class="container">
+                <h2>🤔 Curiosidades Sobre Áreas</h2>
+                
+                <div class="curiosidade-container">
+                    <div class="curiosidade-card">
+                        <div class="curiosidade-icon">💡</div>
+                        <p id="curiosidade-texto" class="curiosidade-texto"></p>
+                        <button onclick="mudarCuriosidade()" class="btn-curiosidade">🎲 Outra Curiosidade</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Exercícios -->
+        <section class="section">
+            <div class="container">
+                <h2>🎯 Exercícios Propostos</h2>
+                
+                <div class="exercises">
+                    <div class="exercise-item">
+                        <h4>Exercício 1</h4>
+                        <p>Qual é a área de um retângulo com comprimento 8 cm e altura 5 cm?</p>
+                        <button onclick="mostrarResposta(1)" class="btn-small">Ver Resposta</button>
+                        <p id="resp-1" class="hidden">Resposta: 8 × 5 = 40 cm²</p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercício 2</h4>
+                        <p>Um quadrado tem lado de 7 cm. Qual é sua área?</p>
+                        <button onclick="mostrarResposta(2)" class="btn-small">Ver Resposta</button>
+                        <p id="resp-2" class="hidden">Resposta: 7 × 7 = 49 cm²</p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercício 3</h4>
+                        <p>Um triângulo tem base de 10 cm e altura de 6 cm. Qual é sua área?</p>
+                        <button onclick="mostrarResposta(3)" class="btn-small">Ver Resposta</button>
+                        <p id="resp-3" class="hidden">Resposta: (10 × 6) ÷ 2 = 30 cm²</p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercício 4</h4>
+                        <p>Uma sala retangular tem 6 m de comprimento e 4 m de altura. Quantos metros quadrados tem a sala?</p>
+                        <button onclick="mostrarResposta(4)" class="btn-small">Ver Resposta</button>
+                        <p id="resp-4" class="hidden">Resposta: 6 × 4 = 24 m²</p>
+                    </div>
+
+                    <div class="exercise-item">
+                        <h4>Exercício 5</h4>
+                        <p>Um triângulo tem base de 8 cm e altura de 5 cm. Qual é sua área?</p>
+                        <button onclick="mostrarResposta(5)" class="btn-small">Ver Resposta</button>
+                        <p id="resp-5" class="hidden">Resposta: (8 × 5) ÷ 2 = 20 cm²</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dicas e Truques -->
+        <section class="section">
+            <div class="container">
+                <h2>💭 Dicas e Truques</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-box">
+                        <span class="tip-icon">🔑</span>
+                        <p><strong>Lembre-se:</strong> A unidade sempre fica ao quadrado (², como cm²)</p>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-icon">🔑</span>
+                        <p><strong>Quadrado é especial:</strong> Um quadrado é um retângulo com todos os lados iguais</p>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-icon">🔑</span>
+                        <p><strong>Triângulo:</strong> Sempre divida por 2! Dois triângulos iguais = um retângulo</p>
+                    </div>
+                    <div class="tip-box">
+                        <span class="tip-icon">🔑</span>
+                        <p><strong>Unidades:</strong> Certifique-se de que tudo está na mesma unidade (cm, m, etc.)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Problemas Práticos -->
+        <section id="problemas-praticos" class="section problemas-section">
+            <div class="container">
+                <div class="problemas-header" onclick="toggleProblemas()">
+                    <h2>🎯 Problemas Práticos</h2>
+                    <span id="problemas-toggle" class="toggle-icon">▼</span>
+                </div>
+                
+                <div id="problemas-content" class="problemas-content" style="display: none;">
+                    <!-- Problemas Fáceis -->
+                    <div class="problemas-categoria">
+                        <h3 class="dificuldade-facil">⭐ Fácil</h3>
+                        <div class="problemas-grid">
+                            <div class="problema-card" onclick="toggleSolucao(1)">
+                                <p class="problema-numero">Problema 1</p>
+                                <p class="problema-texto">Um retângulo tem 5 cm de comprimento e 3 cm de altura. Qual é a sua área?</p>
+                                <div id="solucao-1" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = comprimento × altura</p>
+                                    <p>A = 5 × 3 = <strong>15 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(2)">
+                                <p class="problema-numero">Problema 2</p>
+                                <p class="problema-texto">Um quadrado tem lado de 4 cm. Calcule a área.</p>
+                                <div id="solucao-2" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = lado × lado</p>
+                                    <p>A = 4 × 4 = <strong>16 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(3)">
+                                <p class="problema-numero">Problema 3</p>
+                                <p class="problema-texto">Um triângulo tem base de 6 cm e altura de 4 cm. Qual é a área?</p>
+                                <div id="solucao-3" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = (base × altura) ÷ 2</p>
+                                    <p>A = (6 × 4) ÷ 2 = 24 ÷ 2 = <strong>12 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(4)">
+                                <p class="problema-numero">Problema 4</p>
+                                <p class="problema-texto">Um retângulo mede 8 cm por 2 cm. Qual é a sua área?</p>
+                                <div id="solucao-4" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = comprimento × altura</p>
+                                    <p>A = 8 × 2 = <strong>16 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(5)">
+                                <p class="problema-numero">Problema 5</p>
+                                <p class="problema-texto">Um quadrado tem lado de 6 cm. Qual é a área?</p>
+                                <div id="solucao-5" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = lado × lado</p>
+                                    <p>A = 6 × 6 = <strong>36 cm²</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problemas Médios -->
+                    <div class="problemas-categoria">
+                        <h3 class="dificuldade-media">⭐⭐ Médio</h3>
+                        <div class="problemas-grid">
+                            <div class="problema-card" onclick="toggleSolucao(6)">
+                                <p class="problema-numero">Problema 6</p>
+                                <p class="problema-texto">Uma sala retangular tem 7 m de comprimento e 5 m de largura. Quantos metros quadrados de piso são necessários?</p>
+                                <div id="solucao-6" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = comprimento × largura</p>
+                                    <p>A = 7 × 5 = <strong>35 m²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(7)">
+                                <p class="problema-numero">Problema 7</p>
+                                <p class="problema-texto">Um triângulo tem base de 12 cm e altura de 8 cm. Calcule a área.</p>
+                                <div id="solucao-7" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = (base × altura) ÷ 2</p>
+                                    <p>A = (12 × 8) ÷ 2 = 96 ÷ 2 = <strong>48 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(8)">
+                                <p class="problema-numero">Problema 8</p>
+                                <p class="problema-texto">Um jardim quadrado tem 9 m de lado. Qual é a área total do jardim?</p>
+                                <div id="solucao-8" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = lado × lado</p>
+                                    <p>A = 9 × 9 = <strong>81 m²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(9)">
+                                <p class="problema-numero">Problema 9</p>
+                                <p class="problema-texto">Um retângulo tem área de 36 cm² e comprimento de 9 cm. Qual é a altura?</p>
+                                <div id="solucao-9" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = comprimento × altura</p>
+                                    <p>36 = 9 × altura</p>
+                                    <p>altura = 36 ÷ 9 = <strong>4 cm</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(10)">
+                                <p class="problema-numero">Problema 10</p>
+                                <p class="problema-texto">Um triângulo tem área de 20 cm² e base de 8 cm. Qual é a altura?</p>
+                                <div id="solucao-10" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = (base × altura) ÷ 2</p>
+                                    <p>20 = (8 × altura) ÷ 2</p>
+                                    <p>40 = 8 × altura</p>
+                                    <p>altura = 40 ÷ 8 = <strong>5 cm</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problemas Difíceis -->
+                    <div class="problemas-categoria">
+                        <h3 class="dificuldade-dificil">⭐⭐⭐ Difícil</h3>
+                        <div class="problemas-grid">
+                            <div class="problema-card" onclick="toggleSolucao(11)">
+                                <p class="problema-numero">Problema 11</p>
+                                <p class="problema-texto">Um terreno retangular tem 15 m de comprimento. Se a área é 180 m², qual é a largura?</p>
+                                <div id="solucao-11" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = comprimento × largura</p>
+                                    <p>180 = 15 × largura</p>
+                                    <p>largura = 180 ÷ 15 = <strong>12 m</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(12)">
+                                <p class="problema-numero">Problema 12</p>
+                                <p class="problema-texto">Dois quadrados têm lados de 5 cm e 3 cm. Qual é a diferença entre suas áreas?</p>
+                                <div id="solucao-12" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>Quadrado 1: A₁ = 5 × 5 = 25 cm²</p>
+                                    <p>Quadrado 2: A₂ = 3 × 3 = 9 cm²</p>
+                                    <p>Diferença = 25 - 9 = <strong>16 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(13)">
+                                <p class="problema-numero">Problema 13</p>
+                                <p class="problema-texto">Um triângulo tem área de 54 cm². Se a altura é 9 cm, qual é a base?</p>
+                                <div id="solucao-13" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = (base × altura) ÷ 2</p>
+                                    <p>54 = (base × 9) ÷ 2</p>
+                                    <p>108 = base × 9</p>
+                                    <p>base = 108 ÷ 9 = <strong>12 cm</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(14)">
+                                <p class="problema-numero">Problema 14</p>
+                                <p class="problema-texto">Um retângulo tem perímetro de 24 cm e comprimento de 8 cm. Qual é a área?</p>
+                                <div id="solucao-14" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>Perímetro = 2 × (comprimento + altura)</p>
+                                    <p>24 = 2 × (8 + altura)</p>
+                                    <p>12 = 8 + altura</p>
+                                    <p>altura = 4 cm</p>
+                                    <p>A = 8 × 4 = <strong>32 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(15)">
+                                <p class="problema-numero">Problema 15</p>
+                                <p class="problema-texto">Um quadrado tem área de 64 cm². Qual é o perímetro deste quadrado?</p>
+                                <div id="solucao-15" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>A = lado × lado</p>
+                                    <p>64 = lado²</p>
+                                    <p>lado = 8 cm</p>
+                                    <p>Perímetro = 4 × lado = 4 × 8 = <strong>32 cm</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problemas Impossíveis -->
+                    <div class="problemas-categoria">
+                        <h3 class="dificuldade-impossivel">⭐⭐⭐⭐ Impossível</h3>
+                        <div class="problemas-grid">
+                            <div class="problema-card" onclick="toggleSolucao(16)">
+                                <p class="problema-numero">Problema 16</p>
+                                <p class="problema-texto">Um retângulo tem área de 72 cm². Se o comprimento é o dobro da altura, quais são as dimensões?</p>
+                                <div id="solucao-16" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>Seja altura = h, então comprimento = 2h</p>
+                                    <p>A = comprimento × altura</p>
+                                    <p>72 = 2h × h = 2h²</p>
+                                    <p>h² = 36 → h = 6 cm</p>
+                                    <p>Comprimento = 2 × 6 = <strong>12 cm</strong></p>
+                                    <p>Altura = <strong>6 cm</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(17)">
+                                <p class="problema-numero">Problema 17</p>
+                                <p class="problema-texto">Três quadrados têm lados de 3 cm, 4 cm e 5 cm. Qual é a área total dos três quadrados juntos?</p>
+                                <div id="solucao-17" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>Quadrado 1: A₁ = 3 × 3 = 9 cm²</p>
+                                    <p>Quadrado 2: A₂ = 4 × 4 = 16 cm²</p>
+                                    <p>Quadrado 3: A₃ = 5 × 5 = 25 cm²</p>
+                                    <p>Área total = 9 + 16 + 25 = <strong>50 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(18)">
+                                <p class="problema-numero">Problema 18</p>
+                                <p class="problema-texto">Um triângulo tem área de 60 cm². Se a base aumentar 50% e a altura diminuir 20%, qual será a nova área?</p>
+                                <div id="solucao-18" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>Área original: 60 = (b × h) ÷ 2</p>
+                                    <p>Nova base = b + 50% = 1,5b</p>
+                                    <p>Nova altura = h - 20% = 0,8h</p>
+                                    <p>Nova área = (1,5b × 0,8h) ÷ 2</p>
+                                    <p>= (1,2 × b × h) ÷ 2</p>
+                                    <p>= 1,2 × 60 = <strong>72 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(19)">
+                                <p class="problema-numero">Problema 19</p>
+                                <p class="problema-texto">Um quadrado e um retângulo têm o mesmo perímetro de 32 cm. Se o retângulo tem comprimento de 10 cm, qual é a diferença entre suas áreas?</p>
+                                <div id="solucao-19" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p><strong>Quadrado:</strong> Perímetro = 4 × lado = 32</p>
+                                    <p>lado = 8 cm → A₁ = 8 × 8 = 64 cm²</p>
+                                    <p><strong>Retângulo:</strong> 32 = 2 × (10 + altura)</p>
+                                    <p>16 = 10 + altura → altura = 6 cm</p>
+                                    <p>A₂ = 10 × 6 = 60 cm²</p>
+                                    <p>Diferença = 64 - 60 = <strong>4 cm²</strong></p>
+                                </div>
+                            </div>
+                            <div class="problema-card" onclick="toggleSolucao(20)">
+                                <p class="problema-numero">Problema 20</p>
+                                <p class="problema-texto">Um terreno retangular tem 240 m². Se aumentarmos o comprimento em 4 m e diminuirmos a largura em 3 m, a área fica 228 m². Quais são as dimensões originais?</p>
+                                <div id="solucao-20" class="solucao hidden">
+                                    <p class="solucao-titulo">✅ Solução:</p>
+                                    <p>Seja c = comprimento, l = largura</p>
+                                    <p>c × l = 240 ... (1)</p>
+                                    <p>(c + 4) × (l - 3) = 228 ... (2)</p>
+                                    <p>Expandindo (2): cl - 3c + 4l - 12 = 228</p>
+                                    <p>240 - 3c + 4l - 12 = 228</p>
+                                    <p>-3c + 4l = 0 → 4l = 3c → l = 0,75c</p>
+                                    <p>Substituindo em (1): c × 0,75c = 240</p>
+                                    <p>0,75c² = 240 → c² = 320 → c = <strong>16 m</strong> (aproximado)</p>
+                                    <p>l = 240 ÷ 16 = <strong>15 m</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Verdadeiro ou Falso -->
+        <section id="verdadeiro-falso" class="section vf-section">
+            <div class="container">
+                <h2>✓✗ Verdadeiro ou Falso</h2>
+                <p class="vf-descricao">20 perguntas • 10 pontos cada • Total: 200 pontos</p>
+                
+                <div id="vf-quiz-container" class="vf-quiz-container">
+                    <div class="vf-header">
+                        <span id="vf-pergunta-numero" class="vf-number">Pergunta 1 de 20</span>
+                        <span id="vf-pontuacao" class="vf-score">Pontuação: 0/200</span>
+                    </div>
+                    
+                    <div class="vf-progress-bar">
+                        <div id="vf-progress" class="vf-progress-fill"></div>
+                    </div>
+                    
+                    <div id="vf-pergunta-box" class="vf-question-box">
+                        <p id="vf-pergunta-texto" class="vf-question-text"></p>
+                        
+                        <div class="vf-buttons">
+                            <button onclick="responderVF(true)" class="vf-btn vf-btn-verdadeiro">
+                                <span class="vf-icon">✓</span> Verdadeiro
+                            </button>
+                            <button onclick="responderVF(false)" class="vf-btn vf-btn-falso">
+                                <span class="vf-icon">✗</span> Falso
+                            </button>
+                        </div>
+                        
+                        <div id="vf-feedback" class="vf-feedback" style="display: none;"></div>
+                        
+                        <button id="vf-btn-proximo" onclick="proximaPerguntaVF()" class="btn" style="display: none; margin-top: 20px;">
+                            Próxima Pergunta →
+                        </button>
+                    </div>
+                    
+                    <div id="vf-resultado" class="vf-resultado" style="display: none;">
+                        <h3>🎉 Quiz Concluído!</h3>
+                        <div class="vf-resultado-score">
+                            <p id="vf-score-final" class="vf-score-text"></p>
+                            <div class="vf-score-circle">
+                                <span id="vf-percentage" class="vf-percentage">0%</span>
+                            </div>
+                        </div>
+                        <div id="vf-feedback-final" class="vf-feedback-final"></div>
+                        <button onclick="reiniciarVF()" class="btn" style="margin-top: 20px;">Fazer Outra Vez (Novas Perguntas)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 - Site Educativo de Matemática | Áreas para 5º Ano</p>
+            <p>Aprenda, Pratique e Domine! 📚</p>
+            <p class="autor">Criado por <strong>Íris Costa</strong> 💜</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

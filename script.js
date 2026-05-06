@@ -1,118 +1,79 @@
-// Gallery data - you can easily add more items here
-const galleryData = [
-    {
-        id: 1,
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-        theme: 'Dashboard Analytics',
-        author: 'Carlos Silva',
-        category: 'tecnologia',
-        url: 'https://example.com'
-    },
-    {
-        id: 2,
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        theme: 'E-commerce Platform',
-        author: 'Maria Santos',
-        category: 'negocios',
-        url: 'https://example.com'
-    },
-    {
-        id: 3,
-        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
-        theme: 'Creative Portfolio',
-        author: 'Ana Oliveira',
-        category: 'design',
-        url: 'https://example.com'
-    },
-    {
-        id: 4,
-        image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
-        theme: 'Code Editor Theme',
-        author: 'Pedro Costa',
-        category: 'tecnologia',
-        url: 'https://example.com'
-    },
-    {
-        id: 5,
-        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
-        theme: 'Mobile Banking App',
-        author: 'Lucia Ferreira',
-        category: 'negocios',
-        url: 'https://example.com'
-    },
-    {
-        id: 6,
-        image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&h=600&fit=crop',
-        theme: 'Learning Management',
-        author: 'Roberto Almeida',
-        category: 'educacao',
-        url: 'https://example.com'
-    },
-    {
-        id: 7,
-        image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&h=600&fit=crop',
-        theme: 'Fitness Tracker',
-        author: 'Julia Mendes',
-        category: 'design',
-        url: 'https://example.com'
-    },
-    {
-        id: 8,
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        theme: 'Stock Trading',
-        author: 'Andre Souza',
-        category: 'negocios',
-        url: 'https://example.com'
-    },
-    {
-        id: 9,
-        image: 'https://images.unsplash.com/photo-1516110833967-0b5716ca1387?w=800&h=600&fit=crop',
-        theme: 'Online Course Platform',
-        author: 'Fernanda Lima',
-        category: 'educacao',
-        url: 'https://example.com'
-    },
-    {
-        id: 10,
-        image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=600&fit=crop',
-        theme: 'Music Streaming',
-        author: 'Rafael Nunes',
-        category: 'tecnologia',
-        url: 'https://example.com'
-    },
-    {
-        id: 11,
-        image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=600&fit=crop',
-        theme: 'Restaurant Booking',
-        author: 'Camila Rocha',
-        category: 'design',
-        url: 'https://example.com'
-    },
-    {
-        id: 12,
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        theme: 'CRM System',
-        author: 'Lucas Barbosa',
-        category: 'negocios',
-        url: 'https://example.com'
-    }
-];
+let galleryData = [];
 
 // DOM Elements
 const gallery = document.getElementById('gallery');
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
-const filterButtons = document.querySelectorAll('.filter-btn');
+const filterContainer = document.querySelector('.filter-buttons');
 const noResults = document.getElementById('noResults');
+const totalSites = document.getElementById('totalSites');
+const totalCategorias = document.getElementById('totalCategorias');
 
 // Current filter state
 let currentFilter = 'all';
 let currentSearch = '';
 
 // Initialize gallery
-function init() {
-    renderGallery(galleryData);
+async function init() {
     setupEventListeners();
+    await loadGalleryData();
+}
+
+async function loadGalleryData() {
+    try {
+        const response = await fetch('site1/dados.txt', { cache: 'no-store' });
+
+        if (!response.ok) {
+            throw new Error('Nao foi possivel carregar o ficheiro de dados.');
+        }
+
+        const data = await response.json();
+        galleryData = data.map(normalizeItem);
+        updateStats();
+        renderFilters();
+        renderGallery(galleryData);
+    } catch (error) {
+        gallery.innerHTML = `
+            <div class="data-error">
+                <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+                <p>Nao foi possivel carregar os dados do portal.</p>
+                <small>Abra o portal atraves do GitHub Pages ou de um servidor local para permitir a leitura de site1/dados.txt.</small>
+            </div>
+        `;
+        console.error(error);
+    }
+}
+
+function normalizeItem(item) {
+    return {
+        id: item.id,
+        image: item.imagem || item.image,
+        theme: item.tema || item.theme,
+        author: item.autor || item.author,
+        category: item.categoria || item.category || 'Outros',
+        url: item.url,
+        description: item.descricao || item.description || ''
+    };
+}
+
+function updateStats() {
+    const categories = new Set(galleryData.map(item => item.category));
+    totalSites.textContent = galleryData.length;
+    totalCategorias.textContent = categories.size;
+}
+
+function renderFilters() {
+    const categories = [...new Set(galleryData.map(item => item.category))].sort((a, b) => a.localeCompare(b, 'pt'));
+
+    filterContainer.innerHTML = '<button class="filter-btn active" data-filter="all">Todos</button>';
+
+    categories.forEach(category => {
+        const button = document.createElement('button');
+        button.className = 'filter-btn';
+        button.dataset.filter = category;
+        button.textContent = category;
+        filterContainer.appendChild(button);
+    });
 }
 
 // Render gallery items
@@ -141,20 +102,13 @@ function createGalleryCard(item, index) {
     link.className = 'gallery-item';
     link.style.animationDelay = `${index * 0.1}s`;
 
-    const categoryLabels = {
-        'design': 'Design',
-        'tecnologia': 'Tecnologia',
-        'negocios': 'Negócios',
-        'educacao': 'Educação'
-    };
-
     link.innerHTML = `
         <div class="image-container">
             <img src="${item.image}" alt="${item.theme}" loading="lazy">
             <div class="overlay">
                 <span class="visit-btn">Visitar Site</span>
             </div>
-            <span class="category-tag">${categoryLabels[item.category]}</span>
+            <span class="category-tag">${item.category}</span>
         </div>
         <div class="info">
             <h3 class="theme">
@@ -165,6 +119,7 @@ function createGalleryCard(item, index) {
                 <i class="fas fa-user-circle"></i>
                 ${item.author}
             </p>
+            <p class="description">${item.description}</p>
         </div>
     `;
 
@@ -185,7 +140,9 @@ function filterAndSearch() {
         const searchLower = currentSearch.toLowerCase();
         filtered = filtered.filter(item =>
             item.theme.toLowerCase().includes(searchLower) ||
-            item.author.toLowerCase().includes(searchLower)
+            item.author.toLowerCase().includes(searchLower) ||
+            item.category.toLowerCase().includes(searchLower) ||
+            item.description.toLowerCase().includes(searchLower)
         );
     }
 
@@ -214,17 +171,18 @@ function setupEventListeners() {
         }
     });
 
-    // Filter buttons
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    filterContainer.addEventListener('click', (event) => {
+        const button = event.target.closest('.filter-btn');
 
-            // Update filter and render
-            currentFilter = btn.getAttribute('data-filter');
-            filterAndSearch();
-        });
+        if (!button) {
+            return;
+        }
+
+        filterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        currentFilter = button.dataset.filter;
+        filterAndSearch();
     });
 }
 

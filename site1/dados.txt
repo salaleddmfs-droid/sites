@@ -1,0 +1,83 @@
+[
+	{
+		"id": 1,
+		"tema": "Matematica Divertida - 5. ano",
+		"autor": "Brocho",
+		"categoria": "Matematica",
+		"url": "site1/Brocho/index.html",
+		"imagem": "site1/screenshots/brocho.png",
+		"descricao": "Quiz interativo, curiosidades, jogos e exercicios de matematica para o 5. ano."
+	},
+	{
+		"id": 2,
+		"tema": "Areas na Matematica",
+		"autor": "Iris1",
+		"categoria": "Matematica",
+		"url": "site1/Iris1/index.html",
+		"imagem": "site1/screenshots/iris1.png",
+		"descricao": "Explicacao visual sobre areas, figuras geometricas, formulas, quiz e desafios."
+	},
+	{
+		"id": 3,
+		"tema": "Animais Pre-historicos e Atuais",
+		"autor": "Miguel",
+		"categoria": "Animais",
+		"url": "site1/Miguel/animais.html",
+		"imagem": "site1/screenshots/miguel-animais.png",
+		"descricao": "Informacoes sobre classificacao, habitat, reproducao, adaptacoes e quiz sobre animais."
+	},
+	{
+		"id": 4,
+		"tema": "Ciencias dos Animais",
+		"autor": "miguel 5 i",
+		"categoria": "Animais",
+		"url": "site1/miguel 5 i/ciencias-animais/index.html",
+		"imagem": "site1/screenshots/miguel-5-i-ciencias-animais.png",
+		"descricao": "Factos cientificos e curiosidades sobre varias especies animais."
+	},
+	{
+		"id": 5,
+		"tema": "O Coracao - O Motor da Vida",
+		"autor": "Pedrosa",
+		"categoria": "Saude",
+		"url": "site1/Pedrosa/coracao.html",
+		"imagem": "site1/screenshots/pedrosa-coracao.png",
+		"descricao": "Pagina educativa sobre o coracao, o seu funcionamento e curiosidades do sistema circulatorio."
+	},
+	{
+		"id": 6,
+		"tema": "Taticas para Derrotar Equipas",
+		"autor": "Tiago",
+		"categoria": "Desporto",
+		"url": "site1/Tiago/taticas_futebol.html",
+		"imagem": "site1/screenshots/tiago-taticas-futebol.png",
+		"descricao": "Ferramenta interativa com taticas de futebol organizadas por equipa."
+	},
+	{
+		"id": 7,
+		"tema": "O Corpo Humano",
+		"autor": "Autor nao identificado",
+		"categoria": "Ciencias",
+		"url": "site1/corpo-humano/index.html",
+		"imagem": "site1/screenshots/corpo-humano.png",
+		"descricao": "Exploracao interativa dos sistemas e orgaos do corpo humano."
+	},
+	{
+		"id": 8,
+		"tema": "Ciencias Naturais - 5. ano",
+		"autor": "Autor nao identificado",
+		"categoria": "Ciencias",
+		"url": "site1/Factos sobre ciencias/index.html",
+		"imagem": "site1/screenshots/factos-sobre-ciencias.png",
+		"descricao": "Factos e conteudos sobre corpo humano, plantas, animais, ecossistemas, Terra e energia."
+	},
+	{
+		"id": 9,
+		"tema": "Matematica 5. e 6. ano",
+		"autor": "Autor nao identificado",
+		"categoria": "Matematica",
+		"url": "site1/matematica_5_6/index.html",
+		"imagem": "site1/screenshots/matematica-5-6.png",
+		"descricao": "Questoes de verdadeiro ou falso, galeria e curiosidades matematicas."
+	}
+]

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Corpo Humano - Exploração Interativa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🧬 O Corpo Humano</h1>
+            <p class="subtitle">Explore os sistemas e órgãos do nosso organismo</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <button class="nav-btn active" data-system="intro">Introdução</button>
+            <button class="nav-btn" data-system="circulatorio">Sistema Circulatório</button>
+            <button class="nav-btn" data-system="respiratorio">Sistema Respiratório</button>
+            <button class="nav-btn" data-system="digestivo">Sistema Digestivo</button>
+            <button class="nav-btn" data-system="nervoso">Sistema Nervoso</button>
+            <button class="nav-btn" data-system="esqueletico">Sistema Esquelético</button>
+            <button class="nav-btn" data-system="muscular">Sistema Muscular</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Introdução -->
+        <section id="intro" class="system-section active">
+            <div class="system-header">
+                <h2>Bem-vindo ao Corpo Humano</h2>
+            </div>
+            <div class="content-grid">
+                <div class="info-card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Complexidade Incrível</h3>
+                    <p>O corpo humano é composto por aproximadamente 37 trilhões de células trabalhando em harmonia.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">💓</div>
+                    <h3>Sistemas Integrados</h3>
+                    <p>11 sistemas principais trabalham juntos para manter você vivo e saudável.</p>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">🔬</div>
+                    <h3>Maravilha da Natureza</h3>
+                    <p>Cada sistema possui funções específicas e vitais para o funcionamento do organismo.</p>
+                </div>
+            </div>
+            <div class="intro-body">
+                <div class="body-illustration">
+                    <svg viewBox="0 0 200 400" class="human-body">
+                        <!-- Cabeça -->
+                        <ellipse cx="100" cy="40" rx="30" ry="35" fill="#ffd4a3" stroke="#333" stroke-width="2"/>
+                        <!-- Pescoço -->
+                        <rect x="90" y="70" width="20" height="20" fill="#ffd4a3" stroke="#333" stroke-width="2"/>
+                        <!-- Tronco -->
+                        <rect x="60" y="90" width="80" height="120" rx="10" fill="#87ceeb" stroke="#333" stroke-width="2"/>
+                        <!-- Coração -->
+                        <path d="M 95 120 Q 85 110 80 115 Q 75 120 80 130 L 100 150 L 120 130 Q 125 120 120 115 Q 115 110 105 120" fill="#ff6b6b" stroke="#333" stroke-width="1.5"/>
+                        <!-- Pulmões -->
+                        <ellipse cx="75" cy="130" rx="12" ry="20" fill="#ffb3ba" stroke="#333" stroke-width="1.5"/>
+                        <ellipse cx="125" cy="130" rx="12" ry="20" fill="#ffb3ba" stroke="#333" stroke-width="1.5"/>
+                        <!-- Estômago -->
+                        <ellipse cx="90" cy="170" rx="15" ry="18" fill="#bae1ff" stroke="#333" stroke-width="1.5"/>
+                        <!-- Braços -->
+                        <rect x="30" y="100" width="25" height="90" rx="12" fill="#ffd4a3" stroke="#333" stroke-width="2"/>
+                        <rect x="145" y="100" width="25" height="90" rx="12" fill="#ffd4a3" stroke="#333" stroke-width="2"/>
+                        <!-- Pernas -->
+                        <rect x="65" y="215" width="30" height="100" rx="15" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+                        <rect x="105" y="215" width="30" height="100" rx="15" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+                        <!-- Pés -->
+                        <ellipse cx="80" cy="330" rx="15" ry="8" fill="#333"/>
+                        <ellipse cx="120" cy="330" rx="15" ry="8" fill="#333"/>
+                    </svg>
+                </div>
+                <div class="intro-text">
+                    <h3>Explore os Sistemas</h3>
+                    <p>Use o menu acima para navegar pelos diferentes sistemas do corpo humano. Cada seção contém informações detalhadas sobre como cada sistema funciona e sua importância para a saúde.</p>
+                    <div class="fun-facts">
+                        <h4>Fatos Curiosos:</h4>
+                        <ul>
+                            <li>🫀 Seu coração bate cerca de 100.000 vezes por dia</li>
+                            <li>🧠 O cérebro humano contém cerca de 86 bilhões de neurônios</li>
+                            <li>🦴 Um adulto tem 206 ossos, mas bebês nascem com cerca de 300</li>
+                            <li>💪 O músculo mais forte do corpo é o masseter (mandíbula)</li>
+                            <li>👃 Você pode distinguir mais de 1 trilhão de odores diferentes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema Circulatório -->
+        <section id="circulatorio" class="system-section">
+            <div class="system-header">
+                <div class="system-icon">❤️</div>
+                <h2>Sistema Circulatório</h2>
+            </div>
+            <div class="system-content">
+                <div class="main-info">
+                    <h3>O que é?</h3>
+                    <p>O sistema circulatório é responsável por transportar sangue, oxigênio, nutrientes e hormônios por todo o corpo. É composto pelo coração, vasos sanguíneos e sangue.</p>
+                    
+                    <h3>Componentes Principais:</h3>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h4>🫀 Coração</h4>
+                            <p>Órgão muscular que bombeia sangue para todo o corpo. Bate aproximadamente 100.000 vezes por dia.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🔴 Artérias</h4>
+                            <p>Vasos que levam sangue rico em oxigênio do coração para os tecidos do corpo.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🔵 Veias</h4>
+                            <p>Vasos que retornam o sangue pobre em oxigênio dos tecidos de volta ao coração.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>💉 Capilares</h4>
+                            <p>Vasos microscópicos onde ocorre a troca de oxigênio, nutrientes e resíduos.</p>
+                        </div>
+                    </div>
+
+                    <h3>Funções Principais:</h3>
+                    <ul class="function-list">
+                        <li>Transporte de oxigênio e nutrientes para as células</li>
+                        <li>Remoção de dióxido de carbono e resíduos metabólicos</li>
+                        <li>Distribuição de hormônios pelo corpo</li>
+                        <li>Regulação da temperatura corporal</li>
+                        <li>Proteção contra infecções através dos glóbulos brancos</li>
+                    </ul>
+
+                    <div class="stats-box">
+                        <h4>📊 Estatísticas Impressionantes:</h4>
+                        <ul>
+                            <li>O coração bombeia cerca de 7.500 litros de sangue por dia</li>
+                            <li>O corpo humano tem cerca de 100.000 km de vasos sanguíneos</li>
+                            <li>O sangue completa uma volta completa pelo corpo em apenas 60 segundos</li>
+                            <li>Um adulto tem aproximadamente 5 litros de sangue</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema Respiratório -->
+        <section id="respiratorio" class="system-section">
+            <div class="system-header">
+                <div class="system-icon">🫁</div>
+                <h2>Sistema Respiratório</h2>
+            </div>
+            <div class="system-content">
+                <div class="main-info">
+                    <h3>O que é?</h3>
+                    <p>O sistema respiratório é responsável pela troca de gases entre o corpo e o ambiente. Ele captura oxigênio do ar e elimina dióxido de carbono produzido pelas células.</p>
+                    
+                    <h3>Componentes Principais:</h3>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h4>👃 Nariz e Cavidade Nasal</h4>
+                            <p>Filtram, aquecem e umidificam o ar que entra no corpo.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🎤 Faringe e Laringe</h4>
+                            <p>Passagem de ar e produção de sons (cordas vocais).</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🌬️ Traqueia e Brônquios</h4>
+                            <p>Tubos que conduzem o ar até os pulmões.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🫁 Pulmões</h4>
+                            <p>Órgãos principais onde ocorre a troca gasosa através dos alvéolos.</p>
+                        </div>
+                    </div>
+
+                    <h3>Como Funciona:</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <p><strong>Inspiração:</strong> O diafragma se contrai e os pulmões se expandem, puxando ar para dentro.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <p><strong>Troca Gasosa:</strong> Nos alvéolos, o oxigênio passa para o sangue e o CO₂ é liberado.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <p><strong>Expiração:</strong> O diafragma relaxa e os pulmões se contraem, expelindo o ar.</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-box">
+                        <h4>📊 Dados Interessantes:</h4>
+                        <ul>
+                            <li>Respiramos cerca de 20.000 vezes por dia</li>
+                            <li>Os pulmões contêm cerca de 300 milhões de alvéolos</li>
+                            <li>A superfície total dos alvéolos equivale a uma quadra de tênis</li>
+                            <li>Em repouso, inspiramos cerca de 6 litros de ar por minuto</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema Digestivo -->
+        <section id="digestivo" class="system-section">
+            <div class="system-header">
+                <div class="system-icon">🍽️</div>
+                <h2>Sistema Digestivo</h2>
+            </div>
+            <div class="system-content">
+                <div class="main-info">
+                    <h3>O que é?</h3>
+                    <p>O sistema digestivo é responsável por processar os alimentos, extrair nutrientes e eliminar resíduos. É um tubo de aproximadamente 9 metros de comprimento.</p>
+                    
+                    <h3>Componentes Principais:</h3>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h4>👄 Boca</h4>
+                            <p>Início da digestão mecânica (mastigação) e química (saliva).</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🌊 Esôfago</h4>
+                            <p>Tubo muscular que transporta alimento da boca ao estômago.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🥘 Estômago</h4>
+                            <p>Órgão que mistura alimentos com ácidos e enzimas digestivas.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🌀 Intestinos</h4>
+                            <p>Intestino delgado (absorção) e grosso (formação de fezes).</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🔬 Fígado</h4>
+                            <p>Produz bile e processa nutrientes absorvidos.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>💚 Pâncreas</h4>
+                            <p>Produz enzimas digestivas e hormônios como insulina.</p>
+                        </div>
+                    </div>
+
+                    <h3>Processo Digestivo:</h3>
+                    <div class="process-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <p><strong>Ingestão:</strong> Alimento entra pela boca e é mastigado.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <p><strong>Digestão:</strong> Quebra mecânica e química dos alimentos.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <p><strong>Absorção:</strong> Nutrientes passam para a corrente sanguínea.</p>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <p><strong>Eliminação:</strong> Resíduos não digeridos são expelidos.</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-box">
+                        <h4>📊 Fatos Fascinantes:</h4>
+                        <ul>
+                            <li>O estômago produz cerca de 2 litros de ácido gástrico por dia</li>
+                            <li>O intestino delgado tem cerca de 6 metros de comprimento</li>
+                            <li>A digestão completa pode levar de 24 a 72 horas</li>
+                            <li>O fígado realiza mais de 500 funções diferentes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema Nervoso -->
+        <section id="nervoso" class="system-section">
+            <div class="system-header">
+                <div class="system-icon">🧠</div>
+                <h2>Sistema Nervoso</h2>
+            </div>
+            <div class="system-content">
+                <div class="main-info">
+                    <h3>O que é?</h3>
+                    <p>O sistema nervoso é a central de comando do corpo, responsável por controlar e coordenar todas as funções corporais, processar informações sensoriais e gerar pensamentos e emoções.</p>
+                    
+                    <h3>Componentes Principais:</h3>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h4>🧠 Cérebro</h4>
+                            <p>Centro de controle principal, responsável por pensamento, memória e emoções.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🎯 Cerebelo</h4>
+                            <p>Coordena movimentos e mantém o equilíbrio.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🌊 Medula Espinhal</h4>
+                            <p>Via de comunicação entre cérebro e corpo.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>⚡ Nervos</h4>
+                            <p>Transmitem sinais elétricos por todo o corpo.</p>
+                        </div>
+                    </div>
+
+                    <h3>Divisões do Sistema Nervoso:</h3>
+                    <div class="info-boxes">
+                        <div class="info-box">
+                            <h4>Sistema Nervoso Central (SNC)</h4>
+                            <p>Composto pelo cérebro e medula espinhal. Processa informações e coordena respostas.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Sistema Nervoso Periférico (SNP)</h4>
+                            <p>Rede de nervos que conecta o SNC ao resto do corpo.</p>
+                        </div>
+                    </div>
+
+                    <h3>Funções Principais:</h3>
+                    <ul class="function-list">
+                        <li>Controle de movimentos voluntários e involuntários</li>
+                        <li>Processamento de informações sensoriais (visão, audição, tato, etc.)</li>
+                        <li>Regulação de funções vitais (respiração, batimentos cardíacos)</li>
+                        <li>Pensamento, memória e aprendizado</li>
+                        <li>Controle de emoções e comportamento</li>
+                    </ul>
+
+                    <div class="stats-box">
+                        <h4>📊 Números Impressionantes:</h4>
+                        <ul>
+                            <li>O cérebro contém cerca de 86 bilhões de neurônios</li>
+                            <li>Sinais nervosos viajam a até 120 m/s</li>
+                            <li>O cérebro usa cerca de 20% da energia do corpo</li>
+                            <li>Temos cerca de 100.000 km de nervos no corpo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema Esquelético -->
+        <section id="esqueletico" class="system-section">
+            <div class="system-header">
+                <div class="system-icon">🦴</div>
+                <h2>Sistema Esquelético</h2>
+            </div>
+            <div class="system-content">
+                <div class="main-info">
+                    <h3>O que é?</h3>
+                    <p>O sistema esquelético é a estrutura de suporte do corpo, composto por 206 ossos no adulto. Fornece forma, proteção e permite movimento.</p>
+                    
+                    <h3>Componentes Principais:</h3>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h4>💀 Crânio</h4>
+                            <p>Protege o cérebro e forma a estrutura da face.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🦴 Coluna Vertebral</h4>
+                            <p>33 vértebras que protegem a medula espinhal e suportam o corpo.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🫁 Caixa Torácica</h4>
+                            <p>Costelas que protegem coração e pulmões.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🦵 Ossos Longos</h4>
+                            <p>Fêmur, tíbia, úmero - permitem movimento e suporte.</p>
+                        </div>
+                    </div>
+
+                    <h3>Funções Principais:</h3>
+                    <ul class="function-list">
+                        <li>Suporte estrutural para o corpo</li>
+                        <li>Proteção de órgãos vitais</li>
+                        <li>Produção de células sanguíneas na medula óssea</li>
+                        <li>Armazenamento de minerais (cálcio e fósforo)</li>
+                        <li>Facilitação do movimento através das articulações</li>
+                    </ul>
+
+                    <h3>Tipos de Ossos:</h3>
+                    <div class="info-boxes">
+                        <div class="info-box">
+                            <h4>Ossos Longos</h4>
+                            <p>Fêmur, úmero - mais longos que largos</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Ossos Curtos</h4>
+                            <p>Ossos do punho e tornozelo - formato cúbico</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Ossos Chatos</h4>
+                            <p>Crânio, costelas - finos e curvos</p>
+                        </div>
+                        <div class="info-box">
+                            <h4>Ossos Irregulares</h4>
+                            <p>Vértebras - formato complexo</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-box">
+                        <h4>📊 Curiosidades Ósseas:</h4>
+                        <ul>
+                            <li>O fêmur é o osso mais forte do corpo</li>
+                            <li>O menor osso é o estribo, no ouvido (2-3mm)</li>
+                            <li>Bebês nascem com cerca de 300 ossos</li>
+                            <li>Os ossos são 5 vezes mais fortes que o aço</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sistema Muscular -->
+        <section id="muscular" class="system-section">
+            <div class="system-header">
+                <div class="system-icon">💪</div>
+                <h2>Sistema Muscular</h2>
+            </div>
+            <div class="system-content">
+                <div class="main-info">
+                    <h3>O que é?</h3>
+                    <p>O sistema muscular é composto por mais de 600 músculos que permitem movimento, mantêm a postura e geram calor. Representa cerca de 40% do peso corporal.</p>
+                    
+                    <h3>Tipos de Músculos:</h3>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h4>💪 Músculo Esquelético</h4>
+                            <p>Voluntário, ligado aos ossos, permite movimento consciente.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>❤️ Músculo Cardíaco</h4>
+                            <p>Involuntário, encontrado apenas no coração, contração rítmica.</p>
+                        </div>
+                        <div class="component-card">
+                            <h4>🌊 Músculo Liso</h4>
+                            <p>Involuntário, encontrado em órgãos internos e vasos sanguíneos.</p>
+                        </div>
+                    </div>
+
+                    <h3>Principais Músculos do Corpo:</h3>
+                    <div class="muscle-grid">
+                        <div class="muscle-item">
+                            <h4>Bíceps e Tríceps</h4>
+                            <p>Flexão e extensão do braço</p>
+                        </div>
+                        <div class="muscle-item">
+                            <h4>Peitoral</h4>
+                            <p>Movimentos do tórax e braços</p>
+                        </div>
+                        <div class="muscle-item">
+                            <h4>Abdominais</h4>
+                            <p>Suporte do tronco e postura</p>
+                        </div>
+                        <div class="muscle-item">
+                            <h4>Quadríceps</h4>
+                            <p>Extensão da perna</p>
+                        </div>
+                        <div class="muscle-item">
+                            <h4>Glúteos</h4>
+                            <p>Movimento do quadril</p>
+                        </div>
+                        <div class="muscle-item">
+                            <h4>Gastrocnêmio</h4>
+                            <p>Flexão do pé (panturrilha)</p>
+                        </div>
+                    </div>
+
+                    <h3>Funções Principais:</h3>
+                    <ul class="function-list">
+                        <li>Movimento do corpo e de partes específicas</li>
+                        <li>Manutenção da postura e posição do corpo</li>
+                        <li>Estabilização das articulações</li>
+                        <li>Geração de calor corporal</li>
+                        <li>Proteção de órgãos internos</li>
+                    </ul>
+
+                    <div class="stats-box">
+                        <h4>📊 Fatos Musculares:</h4>
+                        <ul>
+                            <li>O músculo mais forte é o masseter (mandíbula)</li>
+                            <li>O maior músculo é o glúteo máximo</li>
+                            <li>Usamos 43 músculos para franzir a testa</li>
+                            <li>Os músculos representam 40% do peso corporal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>🧬 O Corpo Humano - Site Educativo | Explore e aprenda sobre nosso incrível organismo</p>
+            <p class="footer-note">Este site é apenas para fins educativos. Consulte sempre um profissional de saúde.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
