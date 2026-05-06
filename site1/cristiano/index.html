@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História e Geografia de Portugal - Site Educativo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🇵🇹 História e Geografia de Portugal 🇵🇹</h1>
+            <p class="subtitle">Descobre a fascinante história e geografia do teu país!</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="#inicio">🏠 Início</a></li>
+            <li><a href="#oquee">📚 O que é?</a></li>
+            <li><a href="#curiosidades">💡 Curiosidades</a></li>
+            <li><a href="#galeria">🖼️ Galeria</a></li>
+            <li><a href="#quiz">❓ Quiz</a></li>
+            <li><a href="#verdadeirofalso">🎯 Verdadeiro ou Falso</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="hero-section">
+        <div class="hero-content">
+            <h2>Bem-vindo à Aventura por Portugal!</h2>
+            <p>Descobre a rica história e a diversidade geográfica do teu país através de actividades interactivas e informação interessante.</p>
+            <button class="cta-button" onclick="mostrarCuriosidade()">💡 Descobre uma Curiosidade!</button>
+        </div>
+    </section>
+
+    <section id="oquee" class="info-section">
+        <h2>O que é a História e Geografia de Portugal?</h2>
+        <div class="info-content">
+            <div class="info-card">
+                <h3>🗺️ Portugal: Um País com História!</h3>
+                <p>Portugal é um dos países mais antigos da Europa, com uma <strong>história que remonta a mais de 900 anos</strong>. O país tem uma geografia diversificada que vai desde as praias do Algarve às montanhas da Serra da Estrela.</p>
+                <p>Portugal faz parte de importantes <strong>marcos históricos</strong> e tem uma геografia rica em:</p>
+            </div>
+            <div class="systems-grid">
+                <div class="system-card">
+                    <h4>🏰 História Antiga</h4>
+                    <p>Os primeiros habitantes foram os Lusitanos. Depois surgiram os Romanos, Visigodos e Muçulmanos.</p>
+                </div>
+                <div class="system-card">
+                    <h4>⚓ Descobrimentos</h4>
+                    <p>Portugal foi pioneiro nas grandes Navegações, descobrindo novos continentes no século XV.</p>
+                </div>
+                <div class="system-card">
+                    <h4>🏔️ Relevo</h4>
+                    <p>Portugal templanícies no Alentejo, montañas na Beira e zonas costeiras diversificadas.</p>
+                </div>
+                <div class="system-card">
+                    <h4>🌊 Clima e Costas</h4>
+                    <p>Clima mediterrâneo no Sul, atlântico no Norte e mais de 900 km de costa.</p>
+                </div>
+                <div class="system-card">
+                    <h4>🏛️ Monumentos Históricos</h4>
+                    <p>Castelos, mosteiros e patrimónios mundiais classificados pela UNESCO.</p>
+                </div>
+                <div class="system-card">
+                    <h4>🎭 Cultura e Tradições</h4>
+                    <p>Festas populares, culinária regional e tradições que remontam a séculos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curiosidades" class="curiosities-section">
+        <h2>💡 Sabias Que...?</h2>
+        <div class="curiosity-box">
+            <p id="curiosity-text">Clica no botão para descobrir uma curiosidade interessante!</p>
+        </div>
+        <button class="curiosity-button" onclick="mostrarCuriosidade()">🎲 Nova Curiosidade</button>
+    </section>
+
+    <section id="galeria" class="gallery-section">
+        <h2>🖼️ Galeria de Portugal</h2>
+        <p>Imagens que mostram a riqueza histórica e geográfica de Portugal:</p>
+        
+        <div class="featured-image">
+            <div class="corpo-humano-completo">
+                <h3>🗺️ Portugal: História e Geografia</h3>
+                <div class="anatomia-visual">
+                    <div class="anatomia-labels">
+                        <div class="label-item cerebro-label">🏰 CASTELOS<br><small>Património Medieval</small></div>
+                        <div class="label-item pulmoes-label">⛪ MONASTÉRIOS</div>
+                        <div class="label-item coracao-label">⚓ NAUS<br><small>Descobrimentos</small></div>
+                        <div class="label-item figado-label">🏛️ RUÍNAS ROMANAS</div>
+                        <div class="label-item estomago-label">🗿 MONUMENTOS<br><small>Praça do Comércio</small></div>
+                        <div class="label-item rins-label">🌄 SERRAS<br><small>Estrela, Gerês</small></div>
+                        <div class="label-item baco-label">🏖️ PRAIAS<br><small>Algarve, Costa Vicentina</small></div>
+                        <div class="label-item intestinos-label">🌳 FLORESTAS<br><small>Azeitão, Sintra</small></div>
+                        <div class="label-item musculos-label">🍷 VINHOS<br><small>Douro, Alentejo</small></div>
+                        <div class="label-item ossos-label">🛤️ RIOS<br><small>Tejo, Douro, Guadiana</small></div>
+                    </div>
+                    <div class="sistemas-info">
+                        <p><strong>🏰 História</strong> - Monarquia, Repúblicas e feitos memoráveis</p>
+                        <p><strong>⚓ Descobrimentos</strong> - Vasco da Gama, Pedro Álvares Cabral</p>
+                        <p><strong>🌍 Geografia</strong> - Relevo, clima e paisagens variadas</p>
+                        <p><strong>🎭 Cultura</strong> - Tradições, culinária e Festas Populares</p>
+                        <p><strong>🏛️ Arquitetura</strong> - Castelos, palácios e edifícios históricos</p>
+                        <p><strong>🌊 Costa</strong> - Praias e falésias do continente e ilhas</p>
+                    </div>
+                </div>
+                <p class="featured-desc">Portugal é um país com uma história rica e uma geografia diversificada. Cada região tem as suas próprias tradições, paisagens e património cultural!</p>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="image-placeholder coracao">🏰</div>
+                <p class="caption">Castelos</p>
+                <p class="image-desc">Mais de 200 castelos medievais!</p>
+            </div>
+            <div class="gallery-item">
+                <div class="image-placeholder cerebro">⚓</div>
+                <p class="caption">Navegadores</p>
+                <p class="image-desc">Portugal descobriu 57 países!</p>
+            </div>
+            <div class="gallery-item">
+                <div class="image-placeholder ossos">🏝️</div>
+                <p class="caption">Açores e Madeira</p>
+                <p class="image-desc">Ilhas vulcânicas únicas!</p>
+            </div>
+            <div class="gallery-item">
+                <div class="image-placeholder pulmoes">🌄</div>
+                <p class="caption">Serra da Estrela</p>
+                <p class="image-desc"> Ponto mais alto de Portugal!</p>
+            </div>
+            <div class="gallery-item">
+                <div class="image-placeholder musculos">🍷</div>
+                <p class="caption">Vinhos Portugueses</p>
+                <p class="image-desc">Mais de 250 castas de vinho!</p>
+            </div>
+            <div class="gallery-item">
+                <div class="image-placeholder olhos">🎭</div>
+                <p class="caption">Festividades</p>
+                <p class="image-desc">Santo António, São João, Festas de Coimbra!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+        <h2>❓ Quiz: Testa os Teus Conhecimentos!</h2>
+        <div class="quiz-container">
+            <div id="quiz-question" class="question">
+                <p>Em que ano foi fundada a nacionalidade portuguesa?</p>
+            </div>
+            <div class="options">
+                <button class="option-btn" onclick="checkAnswer(1)">A) 1065</button>
+                <button class="option-btn" onclick="checkAnswer(2)">B) 1143</button>
+                <button class="option-btn" onclick="checkAnswer(3)">C) 1245</button>
+                <button class="option-btn" onclick="checkAnswer(4)">D) 1385</button>
+            </div>
+            <div id="quiz-result" class="result"></div>
+            <p class="score">Pontuação: <span id="score">0</span></p>
+        </div>
+    </section>
+
+    <section id="verdadeirofalso" class="game-section">
+        <h2>🎯 Verdadeiro ou Falso?</h2>
+        <p>Acerta nas afirmações para ganhares pontos!</p>
+        <div class="game-container">
+            <div class="statement-box">
+                <p id="statement-text">Portugal é o país mais antigo da Europa.</p>
+            </div>
+            <div class="game-buttons">
+                <button class="true-btn" onclick="checkStatement(true)">✅ Verdadeiro</button>
+                <button class="false-btn" onclick="checkStatement(false)">❌ Falso</button>
+            </div>
+            <div id="game-result" class="game-result"></div>
+            <p class="game-score">Pontuação do Jogo: <span id="game-score">0</span></p>
+        </div>
+    </section>
+
+    <section class="interactive-section">
+        <h2>🎮 Mais Actividades</h2>
+        <div class="interactive-buttons">
+            <button class="interactive-btn" onclick="revelarFacto()">📖 Facto do Dia</button>
+            <button class="interactive-btn" onclick="mudarCorFundo()">🎨 Mudar Cores</button>
+            <button class="interactive-btn" onclick="reiniciarPontuacao()">🔄 Reiniciar Tudo</button>
+        </div>
+        <div id="interactive-result" class="interactive-result"></div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>📚 <strong>Site Educativo criado por:</strong></p>
+            <p class="author">Cristiano Sousa</p>
+            <p class="school">D. Manuel Fareia e Sousa</p>
+            <p class="year">Ano Lectivo 2025/2026</p>
+            <p class="disclaimer">✨ Este site foi criado com apoio de Inteligência Artificial para o desafio "Sala LED"</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

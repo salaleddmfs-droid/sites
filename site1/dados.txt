@@ -79,5 +79,14 @@
 		"url": "site1/matematica_5_6/index.html",
 		"imagem": "site1/screenshots/matematica-5-6.png",
 		"descricao": "Questoes de verdadeiro ou falso, galeria e curiosidades matematicas."
+	},
+	{
+		"id": 10,
+		"tema": "Historia e Geografia de Portugal",
+		"autor": "Cristiano Sousa",
+		"categoria": "Historia e Geografia",
+		"url": "site1/cristiano/index.html",
+		"imagem": "site1/screenshots/cristiano.png",
+		"descricao": "Site educativo com historia, geografia, curiosidades, galeria e jogos sobre Portugal."
 	}
 ]
